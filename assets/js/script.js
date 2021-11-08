@@ -27,6 +27,14 @@ $('.select').on('click', '.filter-dropdown', function() {
     return false;
 });
 
+$('.filter-search').click(function() {
+    location.reload();
+});
+
+$(document).ready(function() {
+    $('.filter-search').focus();
+});
+
 var qsRegex;
 var japps = $('.japps').isotope({
     // options

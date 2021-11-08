@@ -179,3 +179,16 @@ a {
         margin-bottom: 1.5rem;
     }
 }
+
+.japps .card-header {
+    padding: .1rem 0;
+}
+
+.japps-item:hover {
+    transition: .3s all ease-in-out;
+    transform: scale(1.01);
+}
+
+.japps-item:hover .card {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
