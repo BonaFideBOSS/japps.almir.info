@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BMI Calculator - Japps</title>
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/japp.css">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <main class="container py-4">
+        <nav class="navbar border-bottom pb-3 mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="https://apps.almir.info/">
+                    <img src="../assets/img/JA-primary.png" width="50px">
+                    <span class="ps-3 fs-2 text-primary fw-bold">Japps</span>
+                </a>
+            </div>
+        </nav>
+
+        <section id="japp">
+            <div class="japp-container mb-4 bg-light rounded shadow">
+                <div class="container-fluid py-2">
+
+                    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+                        <div class="nav nav-pills d-flex align-items-start col-md-3 mb-2 mb-md-0">
+                            <a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
+                            <button onclick="history.back()" class="nav-link" title="Back" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-arrow-left fa-lg"></i></button>
+                        </div>
+
+                        <h2 class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                            BMI Calculator
+                        </h2>
+
+                        <div class="japp-share col-md-3 text-end">
+                            <button onclick="navigator.clipboard.writeText(window.location.href);" id="japp-share-btn" class="btn btn-primary" title="Share" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                                <i class="fas fa-share-alt fa-lg"></i>
+                            </button>
+                        </div>
+
+                        <div id="japp-share-toast" class="toast position-absolute top-0 end-0 m-5 align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    Copied to clipboard.
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+
+                <div class="container-fluid py-2">
+                    <div class="japp-box pt-4 pb-2">
+                        <p class="text-center"><i>Coming soon...</i></p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="pt-3 mt-4 text-muted border-top">
+            <div class="d-flex justify-content-between">
+                <div>&copy; Designed by BONAFIDE BOSS</div>
+                <div>almir.info</div>
+            </div>
+        </footer>
+    </main>
+
+    <div class="back-to-top"></div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/fontawesome/js/all.min.js"></script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/particles/particles.js"></script>
+    <script src="../assets/particles/app.js"></script>
+    <script src="../assets/js/isotope.pkgd.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/japp.js"></script>
+</body>
+
+</html>

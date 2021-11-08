@@ -66,3 +66,29 @@ function debounce(fn, threshold) {
         timeout = setTimeout(delayed, threshold);
     };
 }
+
+function scrollToTop() {
+    var $backToTop = $('.back-to-top'),
+        $showBackTotop = $(window).height();
+
+    $backToTop.hide();
+
+
+    $(window).scroll(function() {
+        var windowScrollTop = $(window).scrollTop();
+        if (windowScrollTop > $showBackTotop) {
+            $backToTop.fadeIn('fast');
+        } else {
+            $backToTop.fadeOut('fast');
+        }
+    });
+
+    $backToTop.on('click', function(e) {
+        e.preventDefault();
+        $(' body, html ').animate({
+            scrollTop: 0
+        }, 'fast');
+    });
+}
+
+scrollToTop(); //Init

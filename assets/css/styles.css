@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 
 /* body {
-	font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-family: 'Gugi', cursive;
 } */
 
 a {
@@ -24,11 +24,13 @@ a {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
 }
 
-#explore {
+#explore,
+#japp {
     opacity: .80;
 }
 
-#explore .portfolio {
+#explore .portfolio,
+#japp .japp-container {
     padding: 3rem;
 }
 
@@ -43,57 +45,60 @@ a {
         width: 100%;
         text-align: center;
     }
-    #explore .portfolio {
+    #explore .portfolio,
+    #japp .japp-container {
         padding: .5rem;
     }
 }
 
-.filter {
+#explore .filter {
     cursor: pointer;
 }
 
-.filter-search {
+#explore .filter-search {
     border: none;
 }
 
-.filter-search:focus {
+#explore .filter-search:focus {
     outline: none;
 }
 
 @media only screen and (min-width: 769px) {
-    .filter-item:first-child {
+    #explore .filter-item:first-child {
         display: none;
     }
-    .filter-menu {
+    #explore .filter-menu {
         display: flex;
         justify-content: space-between;
         box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
         border-radius: .5rem;
     }
-    .filter li {
+    #explore .filter li {
         margin: 0 .5rem;
     }
-    .filter li:first-child {
+    #explore .filter li:first-child {
         margin-left: 0rem !important;
     }
-    .filter .active {
+    #explore .filter .active {
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
     }
-    .filter li:hover {
-        background-color: #fff;
+    #explore .filter li:hover {
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
     }
-    .filter-search {
+    #explore .filter-search {
         margin-right: 1rem;
     }
 }
 
-.select .filter-dropdown {
+#explore .select .filter-dropdown {
     display: none;
 }
 
 @media only screen and (max-width: 768px) {
-    .select {
+    #explore .filter a {
+        display: none;
+    }
+    #explore .select {
         background-color: #F5F8F9;
         border-radius: 1.25rem;
         color: #212529;
@@ -107,7 +112,7 @@ a {
         -webkit-touch-callout: none;
         z-index: 2;
     }
-    .select .filter-dropdown {
+    #explore .select .filter-dropdown {
         cursor: pointer;
         display: block;
         padding: 0.5rem 0.5rem;
@@ -117,7 +122,7 @@ a {
         color: #fff;
         border-radius: .5rem;
     }
-    .select .filter-dropdown:after {
+    #explore .select .filter-dropdown:after {
         position: absolute;
         top: 50%;
         right: 0.5rem;
@@ -127,13 +132,13 @@ a {
         content: '\f107';
         z-index: 10;
     }
-    .select.is-open .filter-dropdown:after {
+    #explore .select.is-open .filter-dropdown:after {
         content: '\f106';
     }
-    .select.is-open ul {
+    #explore .select.is-open ul {
         display: block;
     }
-    .select ul {
+    #explore .select ul {
         background-color: #fff;
         box-shadow: 0 0.625rem 3.75rem rgba(134, 151, 168, 0.25);
         border-radius: 20px;
@@ -148,47 +153,79 @@ a {
         width: 100%;
         z-index: 100;
     }
-    .select ul li {
+    #explore .select ul li {
         display: block;
         text-align: left;
         padding: 0.1875rem 1.1875rem;
         color: #212529;
         cursor: pointer;
     }
-    .select ul li:hover {
+    #explore .select ul li:hover {
         background-color: #0d6efd;
     }
-    .select ul li:hover a {
+    #explore .select ul li:hover a {
         color: #fff;
     }
-    .select ul li:first-child {
+    #explore .select ul li:first-child {
         display: none;
     }
-    .select ul li a {
+    #explore .select ul li a {
         color: #212529;
         text-decoration: none;
     }
-    .filter-search {
+    #explore .filter-search {
         width: 100%;
         padding: .5rem 0;
     }
 }
 
 @media only screen and (max-width: 580px) {
-    .select {
+    #explore .select {
         margin-bottom: 1.5rem;
     }
 }
 
-.japps .card-header {
+#explore .japps .card-header {
     padding: .1rem 0;
 }
 
-.japps-item:hover {
+#explore .japps-item:hover {
     transition: .3s all ease-in-out;
     transform: scale(1.01);
 }
 
-.japps-item:hover .card {
+#explore .japps-item:hover .card {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.back-to-top {
+    border-top: 0.0625rem solid #0d6efd;
+    border-left: 0.0625rem solid #0d6efd;
+    cursor: pointer;
+    height: 2rem;
+    opacity: .5;
+    position: fixed;
+    right: 2.5rem;
+    bottom: 1.875rem;
+    width: 2rem;
+    transform: rotate(45deg);
+    transition: opacity .3s ease-out;
+    z-index: 10;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+    .back-to-top {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 512px) {
+    .back-to-top {
+        display: none !important;
+    }
 }
