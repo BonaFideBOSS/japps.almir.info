@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 
 /* body {
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
+	font-family: 'ZCOOL QingKe HuangYou', cursive;
 } */
 
 a {
@@ -22,4 +22,160 @@ a {
 
 #hero a:hover {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+}
+
+#explore {
+    opacity: .80;
+}
+
+#explore .portfolio {
+    padding: 3rem;
+}
+
+#explore .card {
+    opacity: 1;
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width:512px) {
+    #explore .select {
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+    #explore .portfolio {
+        padding: .5rem;
+    }
+}
+
+.filter {
+    cursor: pointer;
+}
+
+.filter-search {
+    border: none;
+}
+
+.filter-search:focus {
+    outline: none;
+}
+
+@media only screen and (min-width: 769px) {
+    .filter-item:first-child {
+        display: none;
+    }
+    .filter-menu {
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+        border-radius: .5rem;
+    }
+    .filter li {
+        margin: 0 .5rem;
+    }
+    .filter li:first-child {
+        margin-left: 0rem !important;
+    }
+    .filter .active {
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+    }
+    .filter li:hover {
+        background-color: #fff;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+    }
+    .filter-search {
+        margin-right: 1rem;
+    }
+}
+
+.select .filter-dropdown {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .select {
+        background-color: #F5F8F9;
+        border-radius: 1.25rem;
+        color: #212529;
+        display: block;
+        margin-bottom: 2rem;
+        position: relative;
+        vertical-align: middle;
+        text-align: left;
+        user-select: none;
+        width: 100%;
+        -webkit-touch-callout: none;
+        z-index: 2;
+    }
+    .select .filter-dropdown {
+        cursor: pointer;
+        display: block;
+        padding: 0.5rem 0.5rem;
+        position: relative;
+        z-index: 1;
+        background-color: #0d6efd;
+        color: #fff;
+        border-radius: .5rem;
+    }
+    .select .filter-dropdown:after {
+        position: absolute;
+        top: 50%;
+        right: 0.5rem;
+        transform: translateY(-50%);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: '\f107';
+        z-index: 10;
+    }
+    .select.is-open .filter-dropdown:after {
+        content: '\f106';
+    }
+    .select.is-open ul {
+        display: block;
+    }
+    .select ul {
+        background-color: #fff;
+        box-shadow: 0 0.625rem 3.75rem rgba(134, 151, 168, 0.25);
+        border-radius: 20px;
+        display: none;
+        max-height: 37.5rem;
+        overflow: hidden;
+        overflow-y: auto;
+        padding: 0.5625rem 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    .select ul li {
+        display: block;
+        text-align: left;
+        padding: 0.1875rem 1.1875rem;
+        color: #212529;
+        cursor: pointer;
+    }
+    .select ul li:hover {
+        background-color: #0d6efd;
+    }
+    .select ul li:hover a {
+        color: #fff;
+    }
+    .select ul li:first-child {
+        display: none;
+    }
+    .select ul li a {
+        color: #212529;
+        text-decoration: none;
+    }
+    .filter-search {
+        width: 100%;
+        padding: .5rem 0;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .select {
+        margin-bottom: 1.5rem;
+    }
 }

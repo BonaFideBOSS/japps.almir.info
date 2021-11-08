@@ -4,3 +4,57 @@
         new bootstrap.Tooltip(tooltipTriggerEl)
     })
 })()
+
+$('.select').on('click', '.filter-dropdown', function() {
+    var parent = $(this).closest('.select');
+    if (!parent.hasClass('is-open')) {
+        parent.addClass('is-open');
+        $('.select.is-open').not(parent).removeClass('is-open');
+    } else {
+        parent.removeClass('is-open');
+    }
+}).on('click', 'ul>li', function() {
+    var parent = $(this).closest('.select');
+    parent.removeClass('is-open').find('.filter-dropdown').text($(this).text());
+
+    $('.filter-item').removeClass('active');
+    $(this).addClass('active');
+    var selector = $(this).attr('data-filter');
+
+    $('.japps-container').isotope({
+        filter: selector
+    });
+    return false;
+});
+
+var qsRegex;
+var japps = $('.japps').isotope({
+    // options
+    itemSelector: '.japps-item',
+    layoutMode: 'fitRows',
+    filter: function() {
+        var $this = $(this);
+        var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+        return searchResult;
+    }
+});
+
+var $quicksearch = $('.filter-search').keyup(debounce(function() {
+    qsRegex = new RegExp($quicksearch.val(), 'gi');
+    japps.isotope();
+}, 200));
+
+function debounce(fn, threshold) {
+    var timeout;
+    threshold = threshold || 100;
+    return function debounced() {
+        clearTimeout(timeout);
+        var args = arguments;
+        var _this = this;
+
+        function delayed() {
+            fn.apply(_this, args);
+        }
+        timeout = setTimeout(delayed, threshold);
+    };
+}
