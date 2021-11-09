@@ -5,6 +5,19 @@
     font-family: 'Gugi', cursive;
 } */
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #212529 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0d6efd;
+    border-radius: 10px;
+}
+
 a {
     text-decoration: none;
 }
