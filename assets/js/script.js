@@ -27,15 +27,6 @@ $('.select').on('click', '.filter-dropdown', function() {
     return false;
 });
 
-$('.filter-search').click(function() {
-    location.reload();
-});
-
-$(document).ready(function() {
-    $('.filter-search').focus();
-    Keyboard.show();
-});
-
 var qsRegex;
 var japps = $('.japps').isotope({
     // options
@@ -51,7 +42,7 @@ var japps = $('.japps').isotope({
 var $quicksearch = $('.filter-search').keyup(debounce(function() {
     qsRegex = new RegExp($quicksearch.val(), 'gi');
     japps.isotope();
-}, 200));
+}, 1));
 
 function debounce(fn, threshold) {
     var timeout;
@@ -71,9 +62,7 @@ function debounce(fn, threshold) {
 function scrollToTop() {
     var $backToTop = $('.back-to-top'),
         $showBackTotop = $(window).height();
-
     $backToTop.hide();
-
 
     $(window).scroll(function() {
         var windowScrollTop = $(window).scrollTop();
@@ -91,5 +80,4 @@ function scrollToTop() {
         }, 'fast');
     });
 }
-
 scrollToTop(); //Init

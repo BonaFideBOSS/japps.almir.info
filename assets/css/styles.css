@@ -173,6 +173,9 @@ a {
         color: #212529;
         cursor: pointer;
     }
+    #explore .select ul li.active {
+        color: #fff;
+    }
     #explore .select ul li:hover {
         background-color: #0d6efd;
     }
