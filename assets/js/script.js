@@ -32,7 +32,8 @@ $('.filter-search').click(function() {
 });
 
 $(document).ready(function() {
-    $('.filter-search').focus().select();
+    $('.filter-search').focus();
+    Keyboard.show();
 });
 
 var qsRegex;
