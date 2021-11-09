@@ -32,7 +32,7 @@ $('.filter-search').click(function() {
 });
 
 $(document).ready(function() {
-    $('.filter-search').focus();
+    $('.filter-search').focus().select();
 });
 
 var qsRegex;
