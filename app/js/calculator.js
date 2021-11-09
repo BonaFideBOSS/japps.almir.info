@@ -57,7 +57,7 @@ function math() {
         display.innerHTML = "<h2>" + total + "</h2>";
         total = [total];
     } else if (!isFinite(total)) {
-        display.innerHTML = "<h2>ERROR</h2>";
+        display.innerHTML = "<h2 class='text-danger'>ERROR</h2>";
         total = [total];
     } else {
         display.innerHTML = "<h2>" + total + "</h2>";
