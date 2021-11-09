@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/japp.css">
+
+    <!-- JAPP CSS -->
+    <link rel="stylesheet" href="css/calculator.css">
 </head>
 
 <body>
@@ -34,6 +37,7 @@
                         <div class="nav nav-pills d-flex align-items-start col-md-3 mb-2 mb-md-0">
                             <a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
                             <button onclick="history.back()" class="nav-link" title="Back" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-arrow-left fa-lg"></i></button>
+                            <button onclick="window.location.reload();" class="nav-link" title="Refresh" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-sync-alt fa-lg"></i></button>
                         </div>
 
                         <h2 class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -59,32 +63,167 @@
 
                 <div class="container-fluid py-2">
                     <div class="japp-box pt-4 pb-2">
-                        <p class="text-center"><i>Coming soon...</i></p>
+
+                        <div id="display"></div>
+
+                        <div class="calc-row calc-row-1 d-flex justify-content-between">
+                            <div class="key clear">
+                                <button onclick="event.preventDefault(); reset();" class="btn">
+                                    AC
+                                </button>
+                            </div>
+
+                            <div class="key delete">
+                                <button onclick="event.preventDefault(); removeOne();" class="btn">
+                                    <i class="fas fa-backspace"></i>
+                            </button>
+                            </div>
+
+                            <div class="key negative">
+                                <button href="#" onclick="event.preventDefault(); negative();" class="btn">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-minus" class="svg-inline--fa fa-plus-minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M352 448H32c-17.69 0-32 14.31-32 32s14.31 31.1 32 31.1h320c17.69 0 32-14.31 32-31.1S369.7 448 352 448zM48 208H160v111.1c0 17.69 14.31 31.1 32 31.1s32-14.31 32-31.1V208h112c17.69 0 32-14.32 32-32.01s-14.31-31.99-32-31.99H224v-112c0-17.69-14.31-32.01-32-32.01S160 14.33 160 32.01v112H48c-17.69 0-32 14.31-32 31.99S30.31 208 48 208z"></path></svg>
+                            </button>
+                            </div>
+
+                            <div class="key divide">
+                                <button onclick="event.preventDefault(); key('/');" class="btn">
+                                    <i class="fas fa-divide"></i>
+                            </button>
+                            </div>
+                        </div>
+
+                        <div class="calc-row d-flex justify-content-between">
+                            <div class="key k-7">
+                                <button onclick="event.preventDefault(); key('7');" class="btn">
+                                    7
+                            </button>
+                            </div>
+
+                            <div class="key k-8">
+                                <button onclick="event.preventDefault(); key('8');" class="btn">
+                                    8
+                            </button>
+                            </div>
+
+                            <div class="key k-9">
+                                <button onclick="event.preventDefault(); key('9');" class="btn">
+                                    9
+                            </button>
+                            </div>
+
+                            <div class="key multiply">
+                                <button onclick="event.preventDefault(); key('*');" class="btn">
+                                    <i class="fas fa-times"></i>
+                            </button>
+                            </div>
+                        </div>
+
+                        <div class="calc-row d-flex justify-content-between">
+                            <div class="key k-4">
+                                <button onclick="event.preventDefault(); key('4');" class="btn">
+                                    4
+                            </button>
+                            </div>
+
+                            <div class="key k-5">
+                                <button onclick="event.preventDefault(); key('5');" class="btn">
+                                    5
+                            </button>
+                            </div>
+
+                            <div class="key k-6">
+                                <button onclick="event.preventDefault(); key('6');" class="btn">
+                                    6
+                            </button>
+                            </div>
+
+                            <div class="key subtract">
+                                <button onclick="event.preventDefault(); key('-');" class="btn">
+                                    <i class="fas fa-minus"></i>
+                            </button>
+                            </div>
+                        </div>
+
+                        <div class="calc-row d-flex justify-content-between">
+                            <div class="key k-1">
+                                <button onclick="event.preventDefault(); key('1');" class="btn">
+                                    1
+                            </button>
+                            </div>
+
+                            <div class="key k-2">
+                                <button onclick="event.preventDefault(); key('2');" class="btn">
+                                    2
+                            </button>
+                            </div>
+
+                            <div class="key k-3">
+                                <button onclick="event.preventDefault(); key('3');" class="btn">
+                                    3
+                            </button>
+                            </div>
+
+                            <div class="key add">
+                                <button onclick="event.preventDefault(); key('+');" class="btn">
+                                    <i class="fas fa-plus"></i>
+                            </button>
+                            </div>
+                        </div>
+
+                        <div class="calc-row d-flex justify-content-between">
+                            <div class="key k-0">
+                                <button onclick="event.preventDefault(); key('0');" class="btn">
+                                    0
+                            </button>
+                            </div>
+
+                            <div class="key k-00">
+                                <button onclick="event.preventDefault(); key( '00');" class="btn">
+                                    00
+                            </button>
+                            </div>
+
+                            <div class="key decimal">
+                                <button onclick="event.preventDefault(); key( '.');" class="btn">
+                                    <i class="fas fa-circle fa-xs"></i>
+                            </button>
+                            </div>
+
+                            <div class="key equals">
+                                <button onclick="event.preventDefault(); math();" class="btn">
+                                    <i class="fas fa-equals"></i>
+                            </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <footer class="pt-3 mt-4 text-muted border-top">
-            <div class="d-flex justify-content-between">
+        <footer class="pt-3 mt-4 text-muted border-top ">
+            <div class="d-flex justify-content-between ">
                 <div>&copy; Designed by BONAFIDE BOSS</div>
                 <div>almir.info</div>
             </div>
         </footer>
     </main>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top "></div>
 
     <!-- JavaScript -->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/fontawesome/js/all.min.js"></script>
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
-    <script src="../assets/particles/particles.js"></script>
-    <script src="../assets/particles/app.js"></script>
-    <script src="../assets/js/isotope.pkgd.min.js"></script>
-    <script src="../assets/js/script.js"></script>
-    <script src="../assets/js/japp.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js "></script>
+    <script src="../assets/fontawesome/js/all.min.js "></script>
+    <script src="../assets/js/jquery-3.6.0.min.js "></script>
+    <script src="../assets/particles/particles.js "></script>
+    <script src="../assets/particles/app.js "></script>
+    <script src="../assets/js/isotope.pkgd.min.js "></script>
+    <script src="../assets/js/script.js "></script>
+    <script src="../assets/js/japp.js "></script>
+
+    <!-- JAPP JavaScript -->
+    <script src="js/calculator.js "></script>
 </body>
 
 </html>

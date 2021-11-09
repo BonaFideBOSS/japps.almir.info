@@ -1,0 +1,111 @@
+    .japp-box {
+        padding-left: 10rem !important;
+        padding-right: 10rem !important;
+    }
+    
+    #display {
+        width: 100%;
+        overflow: hidden;
+        text-align: right;
+        height: 100px;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: .5rem;
+    }
+    
+    .key {
+        width: 100%;
+        height: 5rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .key:last-child {
+        margin-right: 0rem;
+    }
+    
+    .key button {
+        width: 100%;
+        height: 100%;
+        font-size: 2rem;
+        color: #fff;
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+    
+    .key button:hover {
+        color: #fff;
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+    }
+    
+    .key button:focus {
+        box-shadow: none;
+    }
+    
+    .calc-row .key:last-child button,
+    .calc-row-1 .key button {
+        color: #000;
+        background-color: #ffc107;
+        border-color: #ffc107
+    }
+    
+    .calc-row .key:last-child button:hover,
+    .calc-row-1 .key button:hover {
+        color: #000;
+        background-color: #ffca2c;
+        border-color: #ffc720
+    }
+    
+    .key.clear button {
+        font-weight: bold;
+    }
+    
+    .key.decimal button {
+        font-size: 1rem !important;
+    }
+    
+    .key.equals button {
+        color: #fff !important;
+        background-color: #dc3545 !important;
+        border-color: #dc3545 !important;
+    }
+    
+    .key.equals button:hover {
+        color: #fff !important;
+        background-color: #bb2d3b !important;
+        border-color: #b02a37 !important;
+    }
+    
+    @media only screen and (max-width: 991px) {
+        .japp-box {
+            padding-left: 5rem !important;
+            padding-right: 5rem !important;
+        }
+    }
+    
+    @media only screen and (max-width: 512px) {
+        .japp-box {
+            padding-left: .5rem !important;
+            padding-right: .5rem !important;
+        }
+        #display {
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+        .key {
+            width: 100%;
+            height: 3rem;
+            margin-bottom: .5rem;
+            margin-right: .5rem;
+        }
+        .key button {
+            font-size: large;
+        }
+        .key.decimal button {
+            font-size: .5rem !important;
+        }
+    }
