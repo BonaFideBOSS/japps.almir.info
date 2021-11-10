@@ -118,7 +118,6 @@ a {
         display: block;
         margin-bottom: 2rem;
         position: relative;
-        vertical-align: middle;
         text-align: left;
         user-select: none;
         width: 100%;
@@ -212,6 +211,15 @@ a {
 
 #explore .japps-item:hover .card {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+#explore .japps .card-img {
+    overflow: hidden;
+}
+
+#explore .japps-item:hover img {
+    transform: scale(1.05);
+    transition: .3s all ease-in-out;
 }
 
 .back-to-top {
