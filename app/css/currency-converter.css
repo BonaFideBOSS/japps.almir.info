@@ -1,0 +1,119 @@
+.japp-box {
+  padding-right: 10rem !important;
+  padding-left: 10rem !important
+}
+
+.currency-container select,
+.currency-container .form-control {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  border: none;
+  padding: 1rem;
+}
+
+.currency-container select:focus {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.currency-container .btn:focus {
+  box-shadow: none;
+}
+
+.rate {
+  width: 100%;
+  font-size: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .150);
+  padding: 1rem 2rem;
+  background: #fff;
+  transition: .2s all ease-in-out;
+  border-radius: 10px;
+  /* visibility: hidden; */
+  display: none;
+}
+
+.rate span {
+  font-size: 2rem;
+  display: block;
+}
+
+.currency-container label {
+  font-weight: bold;
+  font-size: small;
+  color: #0d6efd;
+}
+
+.currency-container .currency-selector {
+  margin-bottom: 2rem;
+}
+
+.currency-container .currency-selector div {
+  margin-right: 2rem;
+}
+
+.currency-container .currency-selector .currency:last-child {
+  margin-right: 0rem;
+}
+
+.currency-container form {
+  margin-bottom: 1rem;
+}
+
+#country_one,
+#country_two {
+  text-transform: uppercase;
+  color: #dc3545;
+}
+
+@media only screen and (max-width: 991px) {
+  .japp-box {
+    padding-right: 2.5rem !important;
+    padding-left: 2.5rem !important
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .currency-container form {
+    margin-bottom: .1rem;
+  }
+
+  #country_one,
+  #country_two {
+    margin-bottom: 1rem;
+  }
+
+  .currency-container div:nth-child(3) div:nth-child(2),
+  .currency-container div:nth-child(3) div:nth-child(4) {
+    text-align: right;
+  }
+}
+
+@media only screen and (max-width: 512px) {
+  .japp-box {
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+  }
+
+  .rate {
+    padding: .5rem 1.5rem;
+  }
+
+  .currency-container .currency-selector div {
+    margin-right: .5rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .rate {
+    padding: .5rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .currency-container .currency-selector div {
+    margin-right: .5rem;
+  }
+
+  .rate {
+    padding: .5rem .5rem;
+  }
+}
