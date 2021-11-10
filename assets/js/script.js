@@ -27,6 +27,10 @@ $('.select').on('click', '.filter-dropdown', function() {
     return false;
 });
 
+$('.filter-search').click(function() {
+    location.reload();
+});
+
 var qsRegex;
 var japps = $('.japps').isotope({
     // options
