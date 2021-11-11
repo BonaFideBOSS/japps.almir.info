@@ -37,81 +37,89 @@ a {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
 }
 
-#explore,
+#library,
 #japp {
     opacity: .80;
 }
 
-#explore .portfolio,
+#library .portfolio,
 #japp .japp-container {
     padding: 3rem;
 }
 
-#explore .card {
+#library .card {
     opacity: 1;
     margin-bottom: 1rem;
 }
 
 @media only screen and (max-width:512px) {
-    #explore .select {
+    #library .select {
         padding: 0;
         width: 100%;
         text-align: center;
     }
-    #explore .portfolio,
+
+    #library .portfolio,
     #japp .japp-container {
         padding: .5rem;
     }
 }
 
-#explore .filter {
+#library .filter {
     cursor: pointer;
 }
 
-#explore .filter-search {
+#library .filter-search {
     border: none;
 }
 
-#explore .filter-search:focus {
+#library .filter-search:focus {
     outline: none;
 }
 
 @media only screen and (min-width: 769px) {
-    #explore .filter-item:first-child {
+    #library .filter-item:first-child {
         display: none;
     }
-    #explore .filter-menu {
+
+    #library .filter-menu {
         display: flex;
         justify-content: space-between;
         box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
         border-radius: .5rem;
     }
-    #explore .filter li {
+
+    #library .filter li {
         margin: 0 .5rem;
     }
-    #explore .filter li:first-child {
+
+    #library .filter li:first-child {
         margin-left: 0rem !important;
     }
-    #explore .filter .active {
+
+    #library .filter .active {
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
     }
-    #explore .filter li:hover {
+
+    #library .filter li:hover {
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
     }
-    #explore .filter-search {
+
+    #library .filter-search {
         margin-right: 1rem;
     }
 }
 
-#explore .select .filter-dropdown {
+#library .select .filter-dropdown {
     display: none;
 }
 
 @media only screen and (max-width: 768px) {
-    #explore .filter a {
+    #library .filter a {
         display: none;
     }
-    #explore .select {
+
+    #library .select {
         background-color: #F5F8F9;
         border-radius: 1.25rem;
         color: #212529;
@@ -124,7 +132,8 @@ a {
         -webkit-touch-callout: none;
         z-index: 2;
     }
-    #explore .select .filter-dropdown {
+
+    #library .select .filter-dropdown {
         cursor: pointer;
         display: block;
         padding: 0.5rem 0.5rem;
@@ -134,7 +143,8 @@ a {
         color: #fff;
         border-radius: .5rem;
     }
-    #explore .select .filter-dropdown:after {
+
+    #library .select .filter-dropdown:after {
         position: absolute;
         top: 50%;
         right: 0.5rem;
@@ -144,13 +154,16 @@ a {
         content: '\f107';
         z-index: 10;
     }
-    #explore .select.is-open .filter-dropdown:after {
+
+    #library .select.is-open .filter-dropdown:after {
         content: '\f106';
     }
-    #explore .select.is-open ul {
+
+    #library .select.is-open ul {
         display: block;
     }
-    #explore .select ul {
+
+    #library .select ul {
         background-color: #fff;
         box-shadow: 0 0.625rem 3.75rem rgba(134, 151, 168, 0.25);
         border-radius: 20px;
@@ -165,59 +178,66 @@ a {
         width: 100%;
         z-index: 100;
     }
-    #explore .select ul li {
+
+    #library .select ul li {
         display: block;
         text-align: left;
         padding: 0.1875rem 1.1875rem;
         color: #212529;
         cursor: pointer;
     }
-    #explore .select ul li.active {
+
+    #library .select ul li.active {
         color: #fff;
     }
-    #explore .select ul li:hover {
+
+    #library .select ul li:hover {
         background-color: #0d6efd;
     }
-    #explore .select ul li:hover a {
+
+    #library .select ul li:hover a {
         color: #fff;
     }
-    #explore .select ul li:first-child {
+
+    #library .select ul li:first-child {
         display: none;
     }
-    #explore .select ul li a {
+
+    #library .select ul li a {
         color: #212529;
         text-decoration: none;
     }
-    #explore .filter-search {
+
+    #library .filter-search {
         width: 100%;
         padding: .5rem 0;
     }
 }
 
 @media only screen and (max-width: 580px) {
-    #explore .select {
+    #library .select {
         margin-bottom: 1.5rem;
     }
 }
 
-#explore .japps .card-header {
+#library .japps .card-header {
     padding: .1rem 0;
 }
 
-#explore .japps-item:hover {
+#library .japps-item:hover {
     transition: .3s all ease-in-out;
     transform: scale(1.01);
 }
 
-#explore .japps-item:hover .card {
+#library .japps-item:hover .card {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
-#explore .japps .card-img {
+#library .japps .card-img {
     overflow: hidden;
 }
 
-#explore .japps-item:hover img {
+#library .japps-item:hover img {
     transform: scale(1.05);
     transition: .3s all ease-in-out;
 }
