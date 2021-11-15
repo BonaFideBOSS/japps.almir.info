@@ -58,7 +58,7 @@ function calculate() {
                 if ($(window).width() < 767) {
                     var j;
                     for (j = 0; j < amountform.length; j++) {
-                        amountform[j].style.marginBottom = ".1rem";
+                        amountform[j].style.marginBottom = "0rem";
                     }
                 }
                 var i;

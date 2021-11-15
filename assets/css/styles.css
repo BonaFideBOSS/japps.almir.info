@@ -215,7 +215,7 @@ a {
     }
 }
 
-#library .japps .card-header {
+#library #japps .card-header {
     padding: .1rem 0;
 }
 
@@ -231,7 +231,7 @@ a {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
-#library .japps .card-img {
+#library #japps .card-img {
     overflow: hidden;
 }
 

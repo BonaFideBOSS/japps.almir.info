@@ -19,7 +19,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .japp-box {
   padding-right: 10rem !important;
-  padding-left: 10rem !important
+  padding-left: 10rem !important;
 }
 
 .currency-container select,
@@ -60,6 +60,13 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #0d6efd;
 }
 
+.currency-selector select {
+  background: url(../../assets/img/japps/icons/angle-down.png) no-repeat;
+  background-size: 10px;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}
+
 .currency-container .currency-selector {
   margin-bottom: 2rem;
 }
@@ -74,6 +81,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .currency-container form {
   margin-bottom: 1rem;
+  z-index: 9;
 }
 
 .country-container {
@@ -108,8 +116,10 @@ input[type="number"]::-webkit-inner-spin-button {
 @media only screen and (max-width: 767px) {
 
   .country-container {
-    padding: .2rem .5rem;
+    transform: translateY(-2rem);
+    padding: 1.5rem .5rem .2rem;
     text-align: right;
+    z-index: -1;
   }
 
   .country-container:first-child {

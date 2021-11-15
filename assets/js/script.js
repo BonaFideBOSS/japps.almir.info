@@ -1,11 +1,16 @@
-(function() {
+(function () {
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
         new bootstrap.Tooltip(tooltipTriggerEl)
     })
 })()
 
-$('.select').on('click', '.filter-dropdown', function() {
+$(window).ready(function () {
+    $('#japp-loader').hide();
+    $("#japps").load(location.href + " #japps");
+});
+
+$('.select').on('click', '.filter-dropdown', function () {
     var parent = $(this).closest('.select');
     if (!parent.hasClass('is-open')) {
         parent.addClass('is-open');
@@ -13,7 +18,7 @@ $('.select').on('click', '.filter-dropdown', function() {
     } else {
         parent.removeClass('is-open');
     }
-}).on('click', 'ul>li', function() {
+}).on('click', 'ul>li', function () {
     var parent = $(this).closest('.select');
     parent.removeClass('is-open').find('.filter-dropdown').text($(this).text());
 
@@ -27,7 +32,7 @@ $('.select').on('click', '.filter-dropdown', function() {
     return false;
 });
 
-$('.filter-search').click(function() {
+$('.filter-search').click(function () {
     location.reload();
 });
 
@@ -36,14 +41,14 @@ var japps = $('.japps').isotope({
     // options
     itemSelector: '.japps-item',
     layoutMode: 'fitRows',
-    filter: function() {
+    filter: function () {
         var $this = $(this);
         var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
         return searchResult;
     }
 });
 
-var $quicksearch = $('.filter-search').keyup(debounce(function() {
+var $quicksearch = $('.filter-search').keyup(debounce(function () {
     qsRegex = new RegExp($quicksearch.val(), 'gi');
     japps.isotope();
 }, 1));
@@ -68,7 +73,7 @@ function scrollToTop() {
         $showBackTotop = $(window).height();
     $backToTop.hide();
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         var windowScrollTop = $(window).scrollTop();
         if (windowScrollTop > $showBackTotop) {
             $backToTop.fadeIn('fast');
@@ -77,7 +82,7 @@ function scrollToTop() {
         }
     });
 
-    $backToTop.on('click', function(e) {
+    $backToTop.on('click', function (e) {
         e.preventDefault();
         $(' body, html ').animate({
             scrollTop: 0
