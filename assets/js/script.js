@@ -5,11 +5,6 @@
     })
 })()
 
-$(document).ready(function () {
-    $('#japp-loader').hide();
-    $("#japps").load(location.href + " #japps");
-});
-
 $('.select').on('click', '.filter-dropdown', function () {
     var parent = $(this).closest('.select');
     if (!parent.hasClass('is-open')) {
