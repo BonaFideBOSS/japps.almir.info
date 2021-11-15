@@ -6,7 +6,7 @@
 } */
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -45,11 +45,6 @@ a {
 #library .portfolio,
 #japp .japp-container {
     padding: 3rem;
-}
-
-#library .card {
-    opacity: 1;
-    margin-bottom: 1rem;
 }
 
 @media only screen and (max-width:512px) {
@@ -224,12 +219,15 @@ a {
     padding: .1rem 0;
 }
 
-#library .japps-item:hover {
-    transition: .3s all ease-in-out;
-    transform: scale(1.01);
+#library .card {
+    opacity: 1;
+    margin-bottom: 1rem;
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
-#library .japps-item:hover .card {
+#library .card:hover {
+    transition: .3s all ease-in-out;
+    transform: scale(1.01);
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
@@ -237,7 +235,7 @@ a {
     overflow: hidden;
 }
 
-#library .japps-item:hover img {
+#library .card:hover img {
     transform: scale(1.05);
     transition: .3s all ease-in-out;
 }
