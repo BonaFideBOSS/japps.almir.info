@@ -5,7 +5,7 @@
     })
 })()
 
-$(window).ready(function () {
+$(document).ready(function () {
     $('#japp-loader').hide();
     $("#japps").load(location.href + " #japps");
 });
