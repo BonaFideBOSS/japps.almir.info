@@ -85,3 +85,13 @@ function scrollToTop() {
     });
 }
 scrollToTop(); //Init
+
+function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        console.log(this.responseText);
+    }
+    xhttp.open("GET", "data/votes.txt");
+    xhttp.send();
+}
+window.onload = loadDoc;
