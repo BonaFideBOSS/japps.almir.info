@@ -32,15 +32,17 @@ $('.filter-search').click(function () {
 });
 
 var qsRegex;
-var japps = $('.japps').isotope({
-    // options
-    itemSelector: '.japps-item',
-    layoutMode: 'fitRows',
-    filter: function () {
-        var $this = $(this);
-        var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
-        return searchResult;
-    }
+var japps = $('.japps').imagesLoaded(function () {
+    japps.isotope({
+        // options
+        itemSelector: '.japps-item',
+        layoutMode: 'fitRows',
+        filter: function () {
+            var $this = $(this);
+            var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+            return searchResult;
+        }
+    });
 });
 
 var $quicksearch = $('.filter-search').keyup(debounce(function () {
