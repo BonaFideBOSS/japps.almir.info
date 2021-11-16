@@ -116,8 +116,7 @@ input[type="number"]::-webkit-inner-spin-button {
 @media only screen and (max-width: 767px) {
 
   .country-container {
-    transform: translateY(-2rem);
-    padding: 1.5rem .5rem .2rem;
+    padding: .5rem .5rem;
     text-align: right;
     z-index: -1;
   }
