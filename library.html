@@ -30,25 +30,34 @@
                 <div class="container-fluid py-2">
 
                     <div class="filter-menu mb-5 py-2">
-                        <div class="select">
-                            <span class="filter-dropdown shadow">Select category</span>
-                            <ul class="filter nav nav-pills">
-                                <li class="filter-item">Category</li>
-                                <a href="https://apps.almir.info/" class="nav-link" title="Home"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom"><i
-                                        class="fas fa-home fa-lg"></i></a>
-                                <li class="filter-item nav-link active" data-filter="*">All</li>
-                                <li class="filter-item nav-link" data-filter=".category-app">Apps</li>
-                                <li class="filter-item nav-link" data-filter=".category-game">Games</li>
-                            </ul>
-                        </div>
+                        <ul class="filter nav nav-pills" data-filter-group="japps-category">
+                            <a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
+                            <li class="filter-item nav-link active" data-filter="*">All</li>
+                            <li class="filter-item nav-link" data-filter=".category-app">Apps</li>
+                            <li class="filter-item nav-link" data-filter=".category-game">Games</li>
+                        </ul>
                         <input class="filter-search px-2 bg-white border-bottom" type="search" placeholder="Search"
                             autofocus />
                     </div>
+                    <div class="filter-menu-mobile dropdown mb-5">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Select category
+                        </button>
+                        <ul class="filter dropdown-menu nav-pills" aria-labelledby="dropdownMenuButton1"
+                            data-filter-group="japps-category">
+                            <li class="filter-item nav-link active" data-filter="*">All</li>
+                            <li class="filter-item nav-link" data-filter=".category-app">Apps</li>
+                            <li class="filter-item nav-link" data-filter=".category-game">Games</li>
+                        </ul>
+                        <input class="filter-search-mobile pt-4 bg-white border-bottom" type="search"
+                            placeholder="Search" autofocus />
+                    </div>
 
-                    <!-- <div id="japp-loader" class="text-center my-5">
+                    <div id="japp-loader" class="text-center my-5">
                         <img src="assets/img/JA-min.png" class="fa-spin my-3" />
-                    </div> -->
+                    </div>
 
 
                     <div id="japps" class="japps japps-container row">
@@ -145,6 +154,7 @@
     <script src="assets/particles/particles.js"></script>
     <script src="assets/particles/app.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 

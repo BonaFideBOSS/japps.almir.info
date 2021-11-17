@@ -48,11 +48,6 @@ a {
 }
 
 @media only screen and (max-width:512px) {
-    #library .select {
-        padding: 0;
-        width: 100%;
-        text-align: center;
-    }
 
     #library .portfolio,
     #japp .japp-container {
@@ -60,158 +55,79 @@ a {
     }
 }
 
-#library .filter {
+#library .filter,
+#library .filter-mobile {
     cursor: pointer;
 }
 
-#library .filter-search {
+#library .filter-search,#library .filter-search-mobile {
     border: none;
 }
 
-#library .filter-search:focus {
+#library .filter-search:focus,#library .filter-search-mobile:focus {
     outline: none;
 }
 
-@media only screen and (min-width: 769px) {
-    #library .filter-item:first-child {
-        display: none;
-    }
+#library .filter-menu {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+    border-radius: .5rem;
+}
 
+#library .filter li {
+    margin: 0 .5rem;
+}
+
+#library .filter-menu .filter li:first-child {
+    margin-left: 0rem !important;
+}
+
+#library .filter .active {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+}
+
+#library .filter-menu .filter li:hover {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+}
+
+#library .filter-menu-mobile .filter li:hover {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)
+}
+
+#library .filter-search {
+    margin-right: 1rem;
+}
+
+#library .filter-menu-mobile {
+    display: none !important;
+}
+
+#library .filter-menu-mobile button {
+    box-shadow: none;
+}
+
+#library .filter-menu-mobile button::after {
+    position: absolute;
+    border: none;
+    right: 5%;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f107';
+    z-index: 10;
+}
+
+#library .filter-menu-mobile.is-open button::after {
+    content: '\f106';
+}
+
+@media only screen and (max-width: 769px) {
     #library .filter-menu {
-        display: flex;
-        justify-content: space-between;
-        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-        border-radius: .5rem;
-    }
-
-    #library .filter li {
-        margin: 0 .5rem;
-    }
-
-    #library .filter li:first-child {
-        margin-left: 0rem !important;
-    }
-
-    #library .filter .active {
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
-    }
-
-    #library .filter li:hover {
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
-    }
-
-    #library .filter-search {
-        margin-right: 1rem;
-    }
-}
-
-#library .select .filter-dropdown {
-    display: none;
-}
-
-@media only screen and (max-width: 768px) {
-    #library .filter a {
         display: none;
     }
 
-    #library .select {
-        background-color: #F5F8F9;
-        border-radius: 1.25rem;
-        color: #212529;
-        display: block;
-        margin-bottom: 2rem;
-        position: relative;
-        text-align: left;
-        user-select: none;
-        width: 100%;
-        -webkit-touch-callout: none;
-        z-index: 2;
-    }
-
-    #library .select .filter-dropdown {
-        cursor: pointer;
-        display: block;
-        padding: 0.5rem 0.5rem;
-        position: relative;
-        z-index: 1;
-        background-color: #0d6efd;
-        color: #fff;
-        border-radius: .5rem;
-    }
-
-    #library .select .filter-dropdown:after {
-        position: absolute;
-        top: 50%;
-        right: 0.5rem;
-        transform: translateY(-50%);
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: '\f107';
-        z-index: 10;
-    }
-
-    #library .select.is-open .filter-dropdown:after {
-        content: '\f106';
-    }
-
-    #library .select.is-open ul {
-        display: block;
-    }
-
-    #library .select ul {
-        background-color: #fff;
-        box-shadow: 0 0.625rem 3.75rem rgba(134, 151, 168, 0.25);
-        border-radius: 20px;
-        display: none;
-        max-height: 37.5rem;
-        overflow: hidden;
-        overflow-y: auto;
-        padding: 0.5625rem 0;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        z-index: 100;
-    }
-
-    #library .select ul li {
-        display: block;
-        text-align: left;
-        padding: 0.1875rem 1.1875rem;
-        color: #212529;
-        cursor: pointer;
-    }
-
-    #library .select ul li.active {
-        color: #fff;
-    }
-
-    #library .select ul li:hover {
-        background-color: #0d6efd;
-    }
-
-    #library .select ul li:hover a {
-        color: #fff;
-    }
-
-    #library .select ul li:first-child {
-        display: none;
-    }
-
-    #library .select ul li a {
-        color: #212529;
-        text-decoration: none;
-    }
-
-    #library .filter-search {
-        width: 100%;
-        padding: .5rem 0;
-    }
-}
-
-@media only screen and (max-width: 580px) {
-    #library .select {
-        margin-bottom: 1.5rem;
+    #library .filter-menu-mobile {
+        display: grid !important;
     }
 }
 
