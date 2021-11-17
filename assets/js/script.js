@@ -18,7 +18,7 @@ $(document).ready(function () {
     console.log(hashFilter)
     if (hashFilter == 'apps') {
         $("li[data-filter='.category-app']").click();
-    } else if (hashFilter = 'games') {
+    } else if (hashFilter == 'games') {
         $("li[data-filter='.category-game']").click();
     }
 });
