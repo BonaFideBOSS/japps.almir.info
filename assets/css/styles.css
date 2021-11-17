@@ -60,12 +60,18 @@ a {
     cursor: pointer;
 }
 
-#library .filter-search,#library .filter-search-mobile {
+#library .filter-search,
+#library .filter-search-mobile {
     border: none;
 }
 
-#library .filter-search:focus,#library .filter-search-mobile:focus {
+#library .filter-search:focus,
+#library .filter-search-mobile:focus {
     outline: none;
+}
+
+#library .filter-search {
+    margin-right: 1rem;
 }
 
 #library .filter-menu {
@@ -93,10 +99,6 @@ a {
 
 #library .filter-menu-mobile .filter li:hover {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)
-}
-
-#library .filter-search {
-    margin-right: 1rem;
 }
 
 #library .filter-menu-mobile {
@@ -129,6 +131,13 @@ a {
     #library .filter-menu-mobile {
         display: grid !important;
     }
+}
+
+#library input[type="search"]::-webkit-search-decoration,
+#library input[type="search"]::-webkit-search-cancel-button,
+#library input[type="search"]::-webkit-search-results-button,
+#library input[type="search"]::-webkit-search-results-decoration {
+    display: none;
 }
 
 #library #japps .card-header {

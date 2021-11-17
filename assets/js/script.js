@@ -11,7 +11,6 @@ $(function () {
     });
 });
 
-
 $(document).ready(function () {
     var matches = location.hash.match(/#([^&]+)/i);
     var hashFilter = matches && matches[1];
