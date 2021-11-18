@@ -33,11 +33,16 @@
             <div class="japp-container mb-4 bg-white rounded shadow">
                 <div class="container-fluid py-2">
 
-                    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+                    <header
+                        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
                         <div class="nav nav-pills d-flex align-items-start col-md-3 mb-2 mb-md-0">
-                            <a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
-                            <button onclick="history.back()" class="nav-link" title="Back" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-arrow-left fa-lg"></i></button>
-                            <button onclick="window.location.reload();" class="nav-link" title="Refresh" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-sync-alt fa-lg"></i></button>
+                            <a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
+                            <button onclick="history.back()" class="nav-link" title="Back" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"><i class="fas fa-arrow-left fa-lg"></i></button>
+                            <button onclick="window.location.reload();" class="nav-link" title="Refresh"
+                                data-bs-toggle="tooltip" data-bs-placement="bottom"><i
+                                    class="fas fa-sync-alt fa-lg"></i></button>
                         </div>
 
                         <h2 class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -45,17 +50,22 @@
                         </h2>
 
                         <div class="japp-share col-md-3 text-end">
-                            <button onclick="navigator.clipboard.writeText(window.location.href);" id="japp-share-btn" class="btn btn-primary" title="Share" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                            <button onclick="navigator.clipboard.writeText(window.location.href);" id="japp-share-btn"
+                                class="btn btn-primary" title="Share" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom">
                                 <i class="fas fa-share-alt fa-lg"></i>
                             </button>
                         </div>
 
-                        <div id="japp-share-toast" class="toast position-absolute top-0 end-0 m-5 align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div id="japp-share-toast"
+                            class="toast position-absolute top-0 end-0 m-5 align-items-center text-white bg-primary border-0"
+                            role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="d-flex">
                                 <div class="toast-body">
                                     Copied to clipboard.
                                 </div>
-                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                    data-bs-dismiss="toast" aria-label="Close"></button>
                             </div>
                         </div>
                     </header>
@@ -76,19 +86,25 @@
                             <div class="key delete">
                                 <button onclick="event.preventDefault(); removeOne();" class="btn">
                                     <i class="fas fa-backspace"></i>
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key negative">
                                 <button href="#" onclick="event.preventDefault(); negative();" class="btn">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-minus" class="svg-inline--fa fa-plus-minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M352 448H32c-17.69 0-32 14.31-32 32s14.31 31.1 32 31.1h320c17.69 0 32-14.31 32-31.1S369.7 448 352 448zM48 208H160v111.1c0 17.69 14.31 31.1 32 31.1s32-14.31 32-31.1V208h112c17.69 0 32-14.32 32-32.01s-14.31-31.99-32-31.99H224v-112c0-17.69-14.31-32.01-32-32.01S160 14.33 160 32.01v112H48c-17.69 0-32 14.31-32 31.99S30.31 208 48 208z"></path></svg>
-                            </button>
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-minus"
+                                        class="svg-inline--fa fa-plus-minus" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path fill="currentColor"
+                                            d="M352 448H32c-17.69 0-32 14.31-32 32s14.31 31.1 32 31.1h320c17.69 0 32-14.31 32-31.1S369.7 448 352 448zM48 208H160v111.1c0 17.69 14.31 31.1 32 31.1s32-14.31 32-31.1V208h112c17.69 0 32-14.32 32-32.01s-14.31-31.99-32-31.99H224v-112c0-17.69-14.31-32.01-32-32.01S160 14.33 160 32.01v112H48c-17.69 0-32 14.31-32 31.99S30.31 208 48 208z">
+                                        </path>
+                                    </svg>
+                                </button>
                             </div>
 
                             <div class="key divide">
                                 <button onclick="event.preventDefault(); key('/');" class="btn">
                                     <i class="fas fa-divide"></i>
-                            </button>
+                                </button>
                             </div>
                         </div>
 
@@ -96,25 +112,25 @@
                             <div class="key k-7">
                                 <button onclick="event.preventDefault(); key('7');" class="btn">
                                     7
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key k-8">
                                 <button onclick="event.preventDefault(); key('8');" class="btn">
                                     8
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key k-9">
                                 <button onclick="event.preventDefault(); key('9');" class="btn">
                                     9
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key multiply">
                                 <button onclick="event.preventDefault(); key('*');" class="btn">
                                     <i class="fas fa-times"></i>
-                            </button>
+                                </button>
                             </div>
                         </div>
 
@@ -122,25 +138,25 @@
                             <div class="key k-4">
                                 <button onclick="event.preventDefault(); key('4');" class="btn">
                                     4
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key k-5">
                                 <button onclick="event.preventDefault(); key('5');" class="btn">
                                     5
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key k-6">
                                 <button onclick="event.preventDefault(); key('6');" class="btn">
                                     6
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key subtract">
                                 <button onclick="event.preventDefault(); key('-');" class="btn">
                                     <i class="fas fa-minus"></i>
-                            </button>
+                                </button>
                             </div>
                         </div>
 
@@ -148,25 +164,25 @@
                             <div class="key k-1">
                                 <button onclick="event.preventDefault(); key('1');" class="btn">
                                     1
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key k-2">
                                 <button onclick="event.preventDefault(); key('2');" class="btn">
                                     2
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key k-3">
                                 <button onclick="event.preventDefault(); key('3');" class="btn">
                                     3
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key add">
                                 <button onclick="event.preventDefault(); key('+');" class="btn">
                                     <i class="fas fa-plus"></i>
-                            </button>
+                                </button>
                             </div>
                         </div>
 
@@ -174,25 +190,25 @@
                             <div class="key k-0">
                                 <button onclick="event.preventDefault(); key('0');" class="btn">
                                     0
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key k-00">
                                 <button onclick="event.preventDefault(); key( '00');" class="btn">
                                     00
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key decimal">
                                 <button onclick="event.preventDefault(); key( '.');" class="btn">
                                     <i class="fas fa-circle fa-xs"></i>
-                            </button>
+                                </button>
                             </div>
 
                             <div class="key equals">
                                 <button onclick="event.preventDefault(); math();" class="btn">
                                     <i class="fas fa-equals"></i>
-                            </button>
+                                </button>
                             </div>
                         </div>
 
@@ -219,6 +235,7 @@
     <script src="../assets/particles/particles.js "></script>
     <script src="../assets/particles/app.js "></script>
     <script src="../assets/js/isotope.pkgd.min.js "></script>
+    <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="../assets/js/script.js "></script>
     <script src="../assets/js/japp.js "></script>
 
