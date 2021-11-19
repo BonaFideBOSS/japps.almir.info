@@ -1,0 +1,12 @@
+.japp-box input {
+  height: 65px;
+  border: none;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  text-align: center;
+  font-size: large;
+}
+
+.japp-box input:focus {
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  border: none;
+}

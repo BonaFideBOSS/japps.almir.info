@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap');
+
+.japp-box #table-desktop,
+.japp-box #table-mobile {
+  display: none;
+}
+
+.japp-box #table-desktop td {
+  text-align: center;
+}
+
+.japp-box #table-desktop tr th:last-child {
+  text-align: end;
+}
+
+.japp-box #table-desktop tr:first-child td {
+  font-family: 'Quattrocento', serif;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+
+.japp-box input[type="number"]:hover {
+  background-image: url('../../assets/img/japps/icons/spinbtn.png');
+  background-position: center right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.japp-box input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  border-width: 0px;
+  margin: 0;
+  border-left: 1px solid #d8d8d8;
+  height: 35px;
+  width: 25px;
+  cursor: pointer;
+}
+
+.japp-box label {
+  font-weight: bold;
+  color: #0d6efd;
+  margin-bottom: .3rem;
+}
+
+.japp-box input {
+  height: 50px;
+  font-size: larger;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .275) !important;
+  border: none;
+}
+
+.japp-box input:focus {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+}

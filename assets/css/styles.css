@@ -140,17 +140,21 @@ a {
     display: none;
 }
 
+#library #japps .btn:focus {
+    box-shadow: none;
+}
+
 #library #japps .card-header {
     padding: .1rem 0;
 }
 
-#library .card {
+#library #japps .card {
     opacity: 1;
     margin-bottom: 1rem;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
-#library .card:hover {
+#library #japps .card:hover {
     transition: .3s all ease-in-out;
     transform: scale(1.01);
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
