@@ -1,0 +1,49 @@
+.game-box {
+  text-align: center;
+}
+
+.japp-box .secret-number-box {
+  font-size: 6rem;
+  width: 12rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.game-box .message {
+  margin: 1.5rem 0;
+  font-size: 2rem;
+}
+
+.game-box input {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: large;
+}
+
+.game-box .btn {
+  margin: 1rem 0;
+  padding: 1rem 3rem;
+  font-size: larger;
+}
+
+.game-box .btn:focus {
+  box-shadow: none;
+}
+
+.game-box .play-again {
+  display: none;
+}
+
+.game-box .label-score {
+  font-size: 1.5rem;
+}
+
+.game-box .label-score .score {
+  font-weight: bold;
+}
+
+.statistics .table tbody tr td:last-child {
+  text-align: end;
+}

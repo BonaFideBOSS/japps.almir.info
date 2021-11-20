@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Snake - Japps</title>
+    <title>Guess the Number - Japps</title>
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/japp.css">
+
+    <!-- JAPP CSS -->
+    <link rel="stylesheet" href="css/guess-the-number.css">
 </head>
 
 <body>
@@ -43,7 +46,7 @@
                         </div>
 
                         <h2 class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                            Classic Snake
+                            Guess the Number
                         </h2>
 
                         <div class="japp-share col-md-3 text-end">
@@ -70,7 +73,47 @@
 
                 <div class="container-fluid py-2">
                     <div class="japp-box pt-4 pb-2">
-                        <p class="text-center"><i>Coming soon...</i></p>
+                        <div class="game-box">
+                            <p><i>Guess the secret number between 1 and 20 to win the game!</i></p>
+                            <div class="secret-number-box mx-auto shadow-lg">
+                                <p class="secret-number">?</p>
+                            </div>
+                            <p class="message">Start guessing...</p>
+                            <div class="col-lg-4 col-12 mx-auto">
+                                <input type="number" class="guess form-control" min="1" max="20"
+                                    placeholder="Your guess?">
+                            </div>
+                            <button class="btn btn-primary guess-btn">Guess!</button>
+                            <button class="btn btn-primary play-again">Play Again</button>
+                            <p class="label-score">Current Score: <span class="score">20</span></p>
+                        </div>
+                        <div class="statistics">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Statistics</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Highest Score</td>
+                                        <td class="highscore">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Wins</td>
+                                        <td class="wins">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Losses</td>
+                                        <td class="losses">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Guesses</td>
+                                        <td class="total-games">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -97,6 +140,9 @@
     <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/japp.js"></script>
+
+    <!-- JAPP JavaScript -->
+    <script src="js/guess-the-number.js"></script>
 </body>
 
 </html>
