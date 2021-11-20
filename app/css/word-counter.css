@@ -1,0 +1,7 @@
+.japp-box textarea:focus {
+  box-shadow: none;
+}
+
+.japp-box .details table tbody tr td:last-child {
+  text-align: end;
+}

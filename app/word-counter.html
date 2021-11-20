@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Word Counter - Japps</title>
+	<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="../assets/css/styles.css">
+	<link rel="stylesheet" href="../assets/css/japp.css">
+
+	<!-- JAPP CSS -->
+	<link rel="stylesheet" href="css/word-counter.css">
+</head>
+
+<body>
+	<div id="particles-js"></div>
+
+	<main class="container py-4">
+		<nav class="navbar border-bottom pb-3 mb-4">
+			<div class="container-fluid">
+				<a class="navbar-brand d-flex align-items-center" href="https://apps.almir.info/">
+					<img src="../assets/img/JA-primary.png" width="50px">
+					<span class="ps-3 fs-2 text-primary fw-bold">Japps</span>
+				</a>
+			</div>
+		</nav>
+
+		<section id="japp">
+			<div class="japp-container mb-4 bg-white rounded shadow">
+				<div class="container-fluid py-2">
+
+					<header
+						class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+						<div class="nav nav-pills d-flex align-items-start col-md-3 mb-2 mb-md-0">
+							<a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip"
+								data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
+							<button onclick="history.back()" class="nav-link" title="Back" data-bs-toggle="tooltip"
+								data-bs-placement="bottom"><i class="fas fa-arrow-left fa-lg"></i></button>
+							<button onclick="window.location.reload();" class="nav-link" title="Refresh" data-bs-toggle="tooltip"
+								data-bs-placement="bottom"><i class="fas fa-sync-alt fa-lg"></i></button>
+						</div>
+
+						<h2 class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+							Word Counter
+						</h2>
+
+						<div class="japp-share col-md-3 text-end">
+							<button onclick="navigator.clipboard.writeText(window.location.href);" id="japp-share-btn"
+								class="btn btn-primary" title="Share" data-bs-toggle="tooltip" data-bs-placement="bottom">
+								<i class="fas fa-share-alt fa-lg"></i>
+							</button>
+						</div>
+
+						<div id="japp-share-toast"
+							class="toast position-absolute top-0 end-0 m-5 align-items-center text-white bg-primary border-0"
+							role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="d-flex">
+								<div class="toast-body">
+									Copied to clipboard.
+								</div>
+								<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+									aria-label="Close"></button>
+							</div>
+						</div>
+					</header>
+				</div>
+
+				<div class="container-fluid py-2">
+					<div class="japp-box pt-4 pb-5">
+						<div class="shadow-lg p-3 my-3 display-6 fw-bolder font-monospace rounded-3">
+							<span class="word-count text-primary">0</span> words <span class="char-count text-primary">0</span>
+							characters</div>
+						<textarea id="userinput" class="form-control border-primary my-4"
+							placeholder="Starting typing or copy and paste your article here..." rows="10" autofocus></textarea>
+						<div class="details">
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="text-primary fs-5"><i class="fas fa-file-alt"></i> Details</th>
+										<th class="text-end"><button class="clear-btn btn btn-primary" title="Clear" data-bs-toggle="tooltip"
+												data-bs-placement="left"><i class="fas fa-trash-alt"></i></button></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Words</td>
+										<td class="word-count">0</td>
+									</tr>
+									<tr>
+										<td>Characters</td>
+										<td class="char-count">0</td>
+									</tr>
+									<tr>
+										<td>Sentences</td>
+										<td class="sentence-count">0</td>
+									</tr>
+									<tr>
+										<td>Lines</td>
+										<td class="line-count">0</td>
+									</tr>
+									<tr>
+										<td>Paragraphs</td>
+										<td class="para-count">0</td>
+									</tr>
+									<tr>
+										<td>Reading Time <span title="Based on an average reading speed of 275 words per minute"
+												data-bs-toggle="tooltip" data-bs-placement="right"><i
+													class="fas fa-info-circle text-muted fa-sm"></i></span></td>
+										<td class="read-time">0 sec</td>
+									</tr>
+									<tr>
+										<td>Speaking Time <span title="Based on an average speaking speed of 180 words per minute"
+												data-bs-toggle="tooltip" data-bs-placement="right"><i
+													class="fas fa-info-circle text-muted fa-sm"></i></span></td>
+										<td class="speak-time">0 sec</td>
+									</tr>
+									<tr>
+										<td>Writing Time <span title="Based on an average hand writing speed of 68 letters per minute"
+												data-bs-toggle="tooltip" data-bs-placement="right"><i
+													class="fas fa-info-circle text-muted fa-sm"></i></span></td>
+										<td class="write-time">0 sec</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<footer class="pt-3 mt-4 text-muted border-top">
+			<div class="d-flex justify-content-between">
+				<div>&copy; Designed by BONAFIDE BOSS</div>
+				<div>almir.info</div>
+			</div>
+		</footer>
+	</main>
+
+	<div class="back-to-top"></div>
+
+	<!-- JavaScript -->
+	<script src="../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../assets/fontawesome/js/all.min.js"></script>
+	<script src="../assets/js/jquery-3.6.0.min.js"></script>
+	<script src="../assets/particles/particles.js"></script>
+	<script src="../assets/particles/app.js"></script>
+	<script src="../assets/js/isotope.pkgd.min.js"></script>
+	<script src="../assets/js/imagesloaded.pkgd.min.js"></script>
+	<script src="../assets/js/script.js"></script>
+	<script src="../assets/js/japp.js"></script>
+
+	<script src="js/word-counter.js"></script>
+</body>
+
+</html>

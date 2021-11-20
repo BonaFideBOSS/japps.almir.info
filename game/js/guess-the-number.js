@@ -80,7 +80,7 @@ guessbtn.addEventListener('click', function () {
   } else if (guess == secretNumber) {
     secretnumbebox.classList.toggle('bg-success');
     secretnumbebox.classList.toggle('text-white');
-    displayMessage('Correct Number!');
+    displayMessage('Congratulations! You have found the secret number!');
     localStorage.setItem("totalwins", storedWins + 1);
     localStorage.setItem("totalgames", storedGames + 1);
     userwins.textContent = storedWins + 1;
@@ -103,7 +103,7 @@ guessbtn.addEventListener('click', function () {
       localStorage.setItem("totalguesses", storedGuesses + 1)
       totalguesses.textContent = storedGuesses + 1
     } else {
-      displayMessage('You lost the game!');
+      displayMessage('Sorry, you lost the game. Better luck next time!');
       usersecretnumber.innerHTML = secretNumber;
       secretnumbebox.classList.toggle('bg-danger')
       secretnumbebox.classList.toggle('text-white')
