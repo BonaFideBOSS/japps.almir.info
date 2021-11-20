@@ -11,6 +11,24 @@
   margin: 1rem 0;
 }
 
+.game-box .secret-number {
+  animation: zoom-in-zoom-out 1s ease-out infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 .game-box .message {
   margin: 1.5rem 0;
   font-size: 2rem;
@@ -22,13 +40,33 @@
   font-size: large;
 }
 
+.game-box input[type="number"]:hover {
+  background-image: url('../../assets/img/japps/icons/spinbtn.png');
+  background-position: center right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-box input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  border-width: 0px;
+  margin: 0;
+  border-left: 1px solid #d8d8d8;
+  height: 35px;
+  width: 30px;
+  cursor: pointer;
+}
+
 .game-box .btn {
   margin: 1rem 0;
   padding: 1rem 3rem;
   font-size: larger;
 }
 
-.game-box .btn:focus {
+.japp-box .btn:focus,
+.japp-box input:focus {
   box-shadow: none;
 }
 

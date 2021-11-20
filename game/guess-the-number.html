@@ -74,9 +74,12 @@
                 <div class="container-fluid py-2">
                     <div class="japp-box pt-4 pb-2">
                         <div class="game-box">
-                            <p><i>Guess the secret number between 1 and 20 to win the game!</i></p>
+                            <h5 class="font-monospace shadow-sm mb-5 py-2">
+                                Guess the <span class="text-primary">secret number</span> between <span
+                                    class="text-primary">1 and 20</span> to win the game!
+                            </h5>
                             <div class="secret-number-box mx-auto shadow-lg">
-                                <p class="secret-number">?</p>
+                                <p class="secret-number"><i class="fas fa-question"></i></p>
                             </div>
                             <p class="message">Start guessing...</p>
                             <div class="col-lg-4 col-12 mx-auto">
@@ -86,12 +89,19 @@
                             <button class="btn btn-primary guess-btn">Guess!</button>
                             <button class="btn btn-primary play-again">Play Again</button>
                             <p class="label-score">Current Score: <span class="score">20</span></p>
+                            <p class="font-monospace shadow-sm my-2 py-2">
+                                <i class="fas fa-info-circle text-muted"></i>
+                                Total no. of guesses remaining = <span class="chances">20</span>
+                            </p>
                         </div>
                         <div class="statistics">
-                            <table class="table">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Statistics</th>
+                                        <th class="text-primary fs-5">Statistics</th>
+                                        <th class="text-end"><button class="reset btn btn-primary"
+                                                title="Reset Statistics" data-bs-toggle="tooltip"
+                                                data-bs-placement="left"><i class="fas fa-sync-alt"></i></button></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -101,15 +111,15 @@
                                     </tr>
                                     <tr>
                                         <td>Total Wins</td>
-                                        <td class="wins">0</td>
+                                        <td class="wins">-</td>
                                     </tr>
                                     <tr>
                                         <td>Total Losses</td>
-                                        <td class="losses">0</td>
+                                        <td class="losses">-</td>
                                     </tr>
                                     <tr>
                                         <td>Total Guesses</td>
-                                        <td class="total-games">0</td>
+                                        <td class="total-games">-</td>
                                     </tr>
                                 </tbody>
                             </table>
