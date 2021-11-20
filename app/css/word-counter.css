@@ -5,3 +5,7 @@
 .japp-box .details table tbody tr td:last-child {
   text-align: end;
 }
+
+.japp-box .btn:focus {
+  box-shadow: none;
+}

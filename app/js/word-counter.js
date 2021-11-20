@@ -87,4 +87,6 @@ $('.clear-btn').on('click', function (event) {
   $(".read-time").html('0 sec');
   $(".speak-time").html('0 sec');
   $(".write-time").html('0 sec');
+
+  userinput.style.height = "252px";
 });
