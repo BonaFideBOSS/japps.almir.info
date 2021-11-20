@@ -13,6 +13,7 @@ var playagain = document.querySelector('.play-again');
 var userhighscore = document.querySelector('.highscore');
 var userwins = document.querySelector('.wins');
 var userlosses = document.querySelector('.losses');
+var totalguesses = document.querySelector('.total-guesses');
 var totalgames = document.querySelector('.total-games');
 var reset = document.querySelector('.reset');
 
@@ -21,20 +22,24 @@ window.addEventListener('load', function () {
   var stats2 = localStorage.getItem("totalwins");
   var stats3 = localStorage.getItem("totallosses");
   var stats4 = localStorage.getItem("totalgames");
+  var stats5 = localStorage.getItem("totalguesses");
   var storedHighscore = parseInt(stats1);
   var storedWins = parseInt(stats2);
   var storedLosses = parseInt(stats3);
   var storedGames = parseInt(stats4);
-  if (storedGames) {
+  var storedGuesses = parseInt(stats5);
+  if (storedGuesses) {
     userhighscore.innerHTML = storedHighscore
     userwins.innerHTML = storedWins
     userlosses.innerHTML = storedLosses
     totalgames.innerHTML = storedGames
+    totalguesses.innerHTML = storedGuesses
   } else {
     localStorage.setItem("highestscore", 0)
     localStorage.setItem("totalwins", 0)
     localStorage.setItem("totallosses", 0)
     localStorage.setItem("totalgames", 0)
+    localStorage.setItem("totalguesses", 0)
   }
 })
 
@@ -63,10 +68,12 @@ guessbtn.addEventListener('click', function () {
   var stats2 = localStorage.getItem("totalwins");
   var stats3 = localStorage.getItem("totallosses");
   var stats4 = localStorage.getItem("totalgames");
+  var stats5 = localStorage.getItem("totalguesses");
   var storedHighscore = parseInt(stats1);
   var storedWins = parseInt(stats2);
   var storedLosses = parseInt(stats3);
   var storedGames = parseInt(stats4);
+  var storedGuesses = parseInt(stats5);
 
   if (guess < 1 || guess > 20) {
     displayMessage('Please choose a number between 1 and 20');
@@ -93,6 +100,8 @@ guessbtn.addEventListener('click', function () {
       score--;
       userscore.textContent = score;
       chances.textContent = score
+      localStorage.setItem("totalguesses", storedGuesses + 1)
+      totalguesses.textContent = storedGuesses + 1
     } else {
       displayMessage('You lost the game!');
       usersecretnumber.innerHTML = secretNumber;
@@ -102,8 +111,10 @@ guessbtn.addEventListener('click', function () {
       chances.textContent = 0;
       userlosses.textContent = storedLosses + 1
       totalgames.textContent = storedGames + 1;
+      totalguesses.textContent = storedGuesses + 1
       localStorage.setItem("totallosses", storedLosses + 1);
       localStorage.setItem("totalgames", storedGames + 1);
+      localStorage.setItem("totalguesses", storedGuesses + 1)
       playagain.style.display = "unset";
       guessbtn.style.display = "none";
     }
@@ -115,8 +126,10 @@ reset.addEventListener('click', function () {
   userwins.innerHTML = '-'
   userlosses.innerHTML = '-'
   totalgames.innerHTML = '-'
+  totalguesses.innerHTML = '-'
   localStorage.setItem("highestscore", 0)
   localStorage.setItem("totalwins", 0)
   localStorage.setItem("totallosses", 0)
   localStorage.setItem("totalgames", 0)
+  localStorage.setItem("totalguesses", 0)
 });
