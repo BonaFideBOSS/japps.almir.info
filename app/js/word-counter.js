@@ -183,15 +183,58 @@ $('#csv-download-btn').on('click', function () {
 $('#clear-btn').on('click', function () {
   userinput.value = '';
   wordcounter();
+  tts.cancel();
   userinput.style.height = "auto";
 });
+
+// TEXT TO SPEECH FUNCTIONS
+var tts = window.speechSynthesis;
 
 $('#speak-btn').on('click', function () {
   if ('speechSynthesis' in window) {
     var msg = new SpeechSynthesisUtterance();
     msg.text = userinput.value;
-    window.speechSynthesis.speak(msg);
+    tts.speak(msg);
+    $('#speak-btn').addClass('disabled')
+    $('#speak-pause-btn').removeAttr('hidden').html('<i class="fas fa-pause"></i> Pause')
+    $('#speak-cancel-btn').removeAttr('hidden')
+    window.setInterval(tsschecker, 1000);
   } else {
     swal("Oops", "Sorry, your browser doesn't support text to speech.", "error");
   }
 });
+
+$('#speak-pause-btn').on('click', function () {
+  if (tts.paused) {
+    tts.resume();
+    $(this).html('<i class="fas fa-pause"></i> Pause')
+  } else {
+    tts.pause();
+    $(this).html('<i class="fas fa-play"></i> Play')
+  }
+});
+
+$('#speak-cancel-btn').on('click', function () {
+  tts.cancel();
+});
+
+function tsschecker() {
+  if (tts.speaking) {
+    if (userinput.value == '') {
+      tts.cancel();
+    }
+  } else {
+    if (userinput.value != '') {
+      $('#speak-btn').removeClass('disabled')
+    }
+    $('#speak-pause-btn').attr('hidden', true)
+    $('#speak-cancel-btn').attr('hidden', true)
+  }
+}
+
+var autotsschecker = window.setInterval(tsschecker, 1000);
+window.onload = function () {
+  tts.cancel();
+  clearInterval(autotsschecker);
+};
+// TEXT TO SPEECH FUNCTIONS END
