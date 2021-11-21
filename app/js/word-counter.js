@@ -5,8 +5,22 @@ $("textarea").each(function () {
   this.style.height = (this.scrollHeight) + "px";
 });
 
-$('#userinput').on('input', function () {
+var userinput = document.getElementById('userinput');
+
+function wordcounter() {
   text = userinput.value;
+
+  if (text != '') {
+    $('#download-btn').removeClass('disabled')
+    $('#clear-btn').removeClass('disabled')
+    $('#speak-btn').removeClass('disabled')
+    $('#print-btn').removeClass('disabled')
+  } else {
+    $('#download-btn').addClass('disabled')
+    $('#clear-btn').addClass('disabled')
+    $('#speak-btn').addClass('disabled')
+    $('#print-btn').addClass('disabled')
+  }
 
   words = text.trim().replace(/\s+/g, ' ').split(' ').length;
   characters = text.length;
@@ -65,7 +79,6 @@ $('#userinput').on('input', function () {
   $(".sentence-count").html(sentences);
   $(".line-count").html(lines);
   $(".para-count").html(paragraphs);
-
   $(".read-time").html(reading);
   $(".speak-time").html(speaking);
   $(".write-time").html(writing);
@@ -75,27 +88,110 @@ $('#userinput').on('input', function () {
     $(".line-count").html(0);
     $(".para-count").html(0);
   }
-});
 
-// File Validator
-$('#upload-btn').on('change', function () {
-  filename = this.files[0].name;
-  var supportedFormats = /(\.pdf|\.txt|\.doc|\.docx)$/i;
-  if (!supportedFormats.exec(filename)) {
-    $(".unsupported-file").html('<b>' + filename + '</b> is not supported.');
+  $('.fb-limit').html(250 - characters)
+  $('.tw-limit').html(280 - characters)
+  $('.ig-limit').html(150 - characters)
+  $('.li-limit').html(1300 - characters)
+  $('.yt-limit').html(5000 - characters)
+  $('.pt-limit').html(160 - characters)
+  $('.rd-limit').html(40000 - characters)
+  $('.dc-limit').html(2000 - characters)
+
+  var limits = document.getElementsByClassName("limit");
+  var i;
+  for (i = 0; i < limits.length; i++) {
+    eachlimit = parseInt(limits[i].innerHTML)
+    if (eachlimit < 0) {
+      limits[i].classList.add('text-danger')
+    } else {
+      limits[i].classList.remove('text-danger')
+    }
   }
+
+}
+
+$('#userinput').on('input', function () {
+  wordcounter();
 });
 
-$('#clear-btn').on('click', function (event) {
-  userinput.value = '';
-  $(".word-count").html(0);
-  $(".char-count").html(0);
-  $(".sentence-count").html(0);
-  $(".line-count").html(0);
-  $(".para-count").html(0);
-  $(".read-time").html('0 sec');
-  $(".speak-time").html('0 sec');
-  $(".write-time").html('0 sec');
+$('#upload-btn').on('change', function () {
+  file = this.files[0]
+  filename = file.name;
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    if (newDoc.checked == true) {
+      userinput.value = (e.target.result)
+      userinput.style.height = "auto";
+    } else {
+      userinput.value = userinput.value + (e.target.result) + '\n';
+    }
+    userinput.style.height = (userinput.scrollHeight) + "px";
+    $('#userinput').trigger('change');
+    wordcounter();
+  };
+  reader.readAsText(file, "UTF-8");
+  $('#uploadModal').modal('toggle');
+});
 
-  userinput.style.height = "252px";
+var downloadfilename = document.getElementById('docFileName');
+
+$('#download-btn').on('click', function () {
+  $(".save-error").html('');
+  downloadfilename.value = ''
+});
+
+function FileDownloader(fileExtension, contentType) {
+  const a = document.createElement('a');
+  const txtfile = new Blob([userinput.value], {
+    type: contentType
+  });
+  a.href = URL.createObjectURL(txtfile);
+  if (downloadfilename.value == '') {
+    a.download = 'JappsDocument' + fileExtension;
+  } else {
+    a.download = downloadfilename.value;
+  }
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+
+$('#txt-download-btn').on('click', function () {
+  FileDownloader('.txt', 'text/plain;charset=utf-8');
+});
+
+$('#pdf-download-btn').on('click', function () {
+  var jsPDF = jspdf.jsPDF;
+  const doc = new jsPDF();
+  doc.text(userinput.value, 10, 10);
+  if (downloadfilename.value == '') {
+    doc.save("JappsDocument.pdf");
+  } else {
+    doc.save(downloadfilename.value + '.pdf')
+  }
+  $('#downloadModal').modal('toggle');
+});
+
+$('#doc-download-btn').on('click', function () {
+  FileDownloader('.doc', 'application/msword');
+});
+
+$('#csv-download-btn').on('click', function () {
+  FileDownloader('.csv', 'text/csv');
+});
+
+$('#clear-btn').on('click', function () {
+  userinput.value = '';
+  wordcounter();
+  userinput.style.height = "auto";
+});
+
+$('#speak-btn').on('click', function () {
+  if ('speechSynthesis' in window) {
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = userinput.value;
+    window.speechSynthesis.speak(msg);
+  } else {
+    swal("Oops", "Sorry, your browser doesn't support text to speech.", "error");
+  }
 });

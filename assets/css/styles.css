@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 
-/* body {
+.font-gugi {
+    font-family: 'Gugi', cursive;
+}
+
+.font-scool {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
-} */
+}
 
 ::-webkit-scrollbar {
     width: 3px;

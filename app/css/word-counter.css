@@ -1,5 +1,5 @@
-.options-menu .btn {
-  flex-grow: 1;
+.text-orange {
+  color: #FE4006;
 }
 
 .japp-box textarea:focus {
@@ -10,6 +10,42 @@
   text-align: end;
 }
 
-button:focus,input:focus {
+button:focus,
+input:focus,
+select:focus {
   box-shadow: none !important;
+}
+
+.form-check input,
+.form-check label {
+  cursor: pointer;
+}
+
+.swal-icon {
+  border-color: #dc3545;
+}
+
+.swal-icon--error__line {
+  background-color: #dc3545;
+}
+
+.swal-title{
+  color: #dc3545;
+}
+
+.swal-text {
+  color: #000;
+}
+
+.swal-button {
+  background-color: #0d6efd;
+}
+
+.swal-button:hover {
+  background-color: #0b5ed7 !important;
+}
+
+.char-limits .row .card {
+  margin-bottom: 2rem;
+  padding: 2rem 0;
 }

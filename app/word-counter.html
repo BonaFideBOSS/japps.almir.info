@@ -78,18 +78,19 @@
 							characters</div>
 
 						<!-- OPTIONS -->
-						<nav class="options-menu nav gap-1 mt-4 mb-1">
+						<nav class="nav gap-1 mt-4 mb-1">
 							<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal"><i
 									class="fas fa-cloud-upload-alt"></i> Upload</button>
-							<button id="download-btn" class="btn btn-primary"><i class="fas fa-cloud-download-alt"></i>
-								Download</button>
-							<button id="clear-btn" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Clear</button>
-							<button id="read-btn" class="btn btn-primary"><i class="fas fa-volume-up"></i> Read</button>
-							<button id="print-btn" class="btn btn-primary"><i class="fas fa-print"></i> Print</button>
+							<button id="download-btn" class="btn btn-primary disabled" data-bs-toggle="modal"
+								data-bs-target="#downloadModal"><i class="fas fa-cloud-download-alt"></i> Download</button>
+							<button id="clear-btn" class="btn btn-primary disabled"><i class="fas fa-trash-alt"></i> Clear</button>
+							<button id="speak-btn" class="btn btn-primary disabled"><i class="fas fa-volume-up"></i> Read</button>
+							<button id="print-btn" class="btn btn-primary disabled"><i class="fas fa-print"></i> Print</button>
 						</nav>
 
 						<textarea id="userinput" class="form-control border-primary mb-4"
-							placeholder="Starting typing or copy and paste your article here..." rows="10" autofocus></textarea>
+							placeholder="Starting typing or copy and paste your document here or simply upload a document using the upload button above..."
+							rows="10" autofocus></textarea>
 
 						<!-- DETAILS AREA -->
 						<div class="details">
@@ -142,6 +143,105 @@
 							</table>
 						</div>
 
+						<hr>
+
+						<div class="char-limits">
+							<table class="table">
+								<thead>
+									<tr>
+										<th colspan="2" class="text-primary fs-5">
+											<i class="fas fa-tachometer-alt"></i> Character Limitations</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr></tr>
+								</tbody>
+							</table>
+
+							<div class="row">
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-facebook fa-2x text-primary"></i>
+											<h6 class="card-title">Facebook</h6>
+											<h3 class="card-text font-gugi"><span class="limit fb-limit">250</span>/250</h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-twitter fa-2x text-info"></i>
+											<h6 class="card-title">Twitter</h6>
+											<h3 class="card-text font-gugi"><span class="limit tw-limit">280</span>/280</h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-instagram fa-2x text-danger"></i>
+											<h6 class="card-title">Instagram</h6>
+											<h3 class="card-text font-gugi"><span class="limit ig-limit">150</span>/150</h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-linkedin fa-2x text-primary"></i>
+											<h6 class="card-title">LinkedIn</h6>
+											<h3 class="card-text font-gugi"><span class="limit li-limit">1300</span>/1300</h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-youtube fa-2x text-danger"></i>
+											<h6 class="card-title">Youtube</h6>
+											<h3 class="card-text font-gugi"><span class="limit yt-limit">5000</span>/5000</h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-pinterest fa-2x text-danger"></i>
+											<h6 class="card-title">Pinterest</h6>
+											<h3 class="card-text font-gugi"><span class="limit pt-limit">160</span>/160</h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-reddit fa-2x text-orange"></i>
+											<h6 class="card-title">Reddit</h6>
+											<h3 class="card-text font-gugi"><span class="limit rd-limit">40000</span>/40000</h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-12">
+									<div class="card text-center shadow border-0">
+										<div class="card-body">
+											<i class="card-title fab fa-discord fa-2x text-primary"></i>
+											<h6 class="card-title">Discord</h6>
+											<h3 class="card-text font-gugi"><span class="limit dc-limit">2000</span>/2000</h3>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -156,13 +256,56 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
+
 						<p>Click the button below to select a text document.</p>
-						<p class="text-muted mb-3">Supported formats: PDF, TXT, DOC, DOCX.</p>
+						<p class="text-muted">Note: Only text documents (.txt, .html, .css, .js, etc...) are fully supported. Other
+							types of files may not be
+							readable.</p>
+
 						<input id="upload-btn" type="file" class="form-control">
-						<p class="unsupported-file text-danger mt-2"></p>
+						<div class="form-check form-switch mt-3">
+							<input class="form-check-input" type="checkbox" role="switch" id="newDoc">
+							<label class="form-check-label" for="newDoc">New document (will remove all your current data)</label>
+						</div>
+
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Download Options Modal -->
+		<div class="modal fade" id="downloadModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Download Document</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<div class="input-group">
+							<label class="input-group-text">Filename</label>
+							<input id="docFileName" class="form-control" type="text" placeholder="JappsDocument">
+						</div>
+
+						<h6 class="mt-4">Save as:</h6>
+						<nav class="nav gap-1">
+							<button id="txt-download-btn" class="btn btn-lg btn-outline-primary">
+								<i class="far fa-file-alt"></i> Text</button>
+							<button id="pdf-download-btn" class="btn btn-lg btn-outline-danger">
+								<i class="fas fa-file-pdf"></i> PDF</button>
+							<button id="doc-download-btn" class="btn btn-lg btn-outline-primary">
+								<i class="fas fa-file-word"></i> Word</button>
+							<button id="csv-download-btn" class="btn btn-lg btn-outline-success">
+								<i class="fas fa-file-csv"></i> CSV</button>
+						</nav>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
@@ -189,6 +332,10 @@
 	<script src="../assets/js/script.js"></script>
 	<script src="../assets/js/japp.js"></script>
 
+	<script src="js/jspdf.umd.min.js"></script>
+	<script src="../assets/js/sweetalert.min.js"></script>
+
+	<!-- JAPP JavaScript -->
 	<script src="js/word-counter.js"></script>
 </body>
 
