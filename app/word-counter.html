@@ -71,18 +71,32 @@
 
 				<div class="container-fluid py-2">
 					<div class="japp-box pt-4 pb-5">
+
+
 						<div class="shadow-lg p-3 my-3 display-6 fw-bolder font-monospace rounded-3">
 							<span class="word-count text-primary">0</span> words <span class="char-count text-primary">0</span>
 							characters</div>
-						<textarea id="userinput" class="form-control border-primary my-4"
+
+						<!-- OPTIONS -->
+						<nav class="options-menu nav gap-1 mt-4 mb-1">
+							<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal"><i
+									class="fas fa-cloud-upload-alt"></i> Upload</button>
+							<button id="download-btn" class="btn btn-primary"><i class="fas fa-cloud-download-alt"></i>
+								Download</button>
+							<button id="clear-btn" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Clear</button>
+							<button id="read-btn" class="btn btn-primary"><i class="fas fa-volume-up"></i> Read</button>
+							<button id="print-btn" class="btn btn-primary"><i class="fas fa-print"></i> Print</button>
+						</nav>
+
+						<textarea id="userinput" class="form-control border-primary mb-4"
 							placeholder="Starting typing or copy and paste your article here..." rows="10" autofocus></textarea>
+
+						<!-- DETAILS AREA -->
 						<div class="details">
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="text-primary fs-5"><i class="fas fa-file-alt"></i> Details</th>
-										<th class="text-end"><button class="clear-btn btn btn-primary" title="Clear" data-bs-toggle="tooltip"
-												data-bs-placement="left"><i class="fas fa-trash-alt"></i></button></th>
+										<th colspan="2" class="text-primary fs-5"><i class="fas fa-file-alt"></i> Details</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -127,11 +141,32 @@
 								</tbody>
 							</table>
 						</div>
+
 					</div>
 				</div>
-
 			</div>
 		</section>
+
+		<!-- Upload Options Modal -->
+		<div class="modal fade" id="uploadModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Upload Document</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>Click the button below to select a text document.</p>
+						<p class="text-muted mb-3">Supported formats: PDF, TXT, DOC, DOCX.</p>
+						<input id="upload-btn" type="file" class="form-control">
+						<p class="unsupported-file text-danger mt-2"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<footer class="pt-3 mt-4 text-muted border-top">
 			<div class="d-flex justify-content-between">

@@ -77,7 +77,16 @@ $('#userinput').on('input', function () {
   }
 });
 
-$('.clear-btn').on('click', function (event) {
+// File Validator
+$('#upload-btn').on('change', function () {
+  filename = this.files[0].name;
+  var supportedFormats = /(\.pdf|\.txt|\.doc|\.docx)$/i;
+  if (!supportedFormats.exec(filename)) {
+    $(".unsupported-file").html('<b>' + filename + '</b> is not supported.');
+  }
+});
+
+$('#clear-btn').on('click', function (event) {
   userinput.value = '';
   $(".word-count").html(0);
   $(".char-count").html(0);
