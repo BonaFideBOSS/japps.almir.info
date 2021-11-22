@@ -188,7 +188,7 @@ $('#clear-btn').on('click', function () {
 });
 
 // TEXT TO SPEECH FUNCTIONS
-var tts = window.speechSynthesis;
+var tts = speechSynthesis;
 
 $('#speak-btn').on('click', function () {
   if ('speechSynthesis' in window) {
@@ -196,9 +196,9 @@ $('#speak-btn').on('click', function () {
     msg.text = userinput.value;
     tts.speak(msg);
     $('#speak-btn').addClass('disabled')
-    $('#speak-pause-btn').removeAttr('hidden').html('<i class="fas fa-pause"></i> Pause')
+    $('#speak-pause-btn').removeAttr('hidden').html('<i class="fas fa-pause"></i>')
     $('#speak-cancel-btn').removeAttr('hidden')
-    window.setInterval(tsschecker, 1000);
+    setInterval(tsschecker, 1000);
   } else {
     swal("Oops", "Sorry, your browser doesn't support text to speech.", "error");
   }
@@ -207,10 +207,10 @@ $('#speak-btn').on('click', function () {
 $('#speak-pause-btn').on('click', function () {
   if (tts.paused) {
     tts.resume();
-    $(this).html('<i class="fas fa-pause"></i> Pause')
+    $(this).html('<i class="fas fa-pause"></i>')
   } else {
     tts.pause();
-    $(this).html('<i class="fas fa-play"></i> Play')
+    $(this).html('<i class="fas fa-play"></i>')
   }
 });
 
@@ -232,7 +232,7 @@ function tsschecker() {
   }
 }
 
-var autotsschecker = window.setInterval(tsschecker, 1000);
+var autotsschecker = setInterval(tsschecker, 1000);
 window.onload = function () {
   tts.cancel();
   clearInterval(autotsschecker);
