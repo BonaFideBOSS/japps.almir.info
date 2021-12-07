@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/japp.css">
+
+    <!-- JAPP CSS -->
+    <link rel="stylesheet" href="css/bmi-calculator.css">
 </head>
 
 <body>
@@ -30,11 +33,16 @@
             <div class="japp-container mb-4 bg-white rounded shadow">
                 <div class="container-fluid py-2">
 
-                    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+                    <header
+                        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
                         <div class="nav nav-pills d-flex align-items-start col-md-3 mb-2 mb-md-0">
-                            <a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
-                            <button onclick="history.back()" class="nav-link" title="Back" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-arrow-left fa-lg"></i></button>
-                            <button onclick="window.location.reload();" class="nav-link" title="Refresh" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-sync-alt fa-lg"></i></button>
+                            <a href="https://apps.almir.info/" class="nav-link" title="Home" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"><i class="fas fa-home fa-lg"></i></a>
+                            <button onclick="history.back()" class="nav-link" title="Back" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"><i class="fas fa-arrow-left fa-lg"></i></button>
+                            <button onclick="window.location.reload();" class="nav-link" title="Refresh"
+                                data-bs-toggle="tooltip" data-bs-placement="bottom"><i
+                                    class="fas fa-sync-alt fa-lg"></i></button>
                         </div>
 
                         <h2 class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -42,25 +50,148 @@
                         </h2>
 
                         <div class="japp-share col-md-3 text-end">
-                            <button onclick="navigator.clipboard.writeText(window.location.href);" id="japp-share-btn" class="btn btn-primary" title="Share" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                            <button onclick="navigator.clipboard.writeText(window.location.href);" id="japp-share-btn"
+                                class="btn btn-primary" title="Share" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom">
                                 <i class="fas fa-share-alt fa-lg"></i>
                             </button>
                         </div>
 
-                        <div id="japp-share-toast" class="toast position-absolute top-0 end-0 m-5 align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div id="japp-share-toast"
+                            class="toast position-absolute top-0 end-0 m-5 align-items-center text-white bg-primary border-0"
+                            role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="d-flex">
                                 <div class="toast-body">
                                     Copied to clipboard.
                                 </div>
-                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                    data-bs-dismiss="toast" aria-label="Close"></button>
                             </div>
                         </div>
                     </header>
                 </div>
 
                 <div class="container-fluid py-2">
-                    <div class="japp-box pt-4 pb-2">
-                        <p class="text-center"><i>Coming soon...</i></p>
+                    <div class="japp-box p-5">
+                        <form class="mx-5 px-5" action="javascript:void(0);" onsubmit="bmi()">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text">Weight</label>
+                                <input id="weight" type="number" class="form-control" required min="1">
+                                <select class="form-select" id="mass">
+                                    <option value="kg">Kilogram (kg)</option>
+                                    <option value="lbs">Pound (lbs)</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text">Height</label>
+                                <input id="height" type="number" class="form-control" required min="1">
+                                <select class="form-select" id="length">
+                                    <option value="cm">Centimeter (cm)</option>
+                                    <option value="m">Meter (m)</option>
+                                    <option value="in">Inch (in)</option>
+                                    <option value="f">Feet & Inches</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3" id="fandi" hidden>
+                                <label class="input-group-text">Height</label>
+                                <select class="form-select" id="feet">
+                                    <option value="" selected disabled>Feet</option>
+                                    <option value="4">4'</option>
+                                    <option value="5">5'</option>
+                                    <option value="6">6'</option>
+                                    <option value="7">7'</option>
+                                </select>
+                                <select class="form-select" id="inches">
+                                    <option value="" selected disabled>Inches</option>
+                                    <option value="0">0"</option>
+                                    <option value="1">1"</option>
+                                    <option value="2">2"</option>
+                                    <option value="3">3"</option>
+                                    <option value="4">4"</option>
+                                    <option value="5">5"</option>
+                                    <option value="6">6"</option>
+                                    <option value="7">7"</option>
+                                    <option value="8">8"</option>
+                                    <option value="9">9"</option>
+                                    <option value="10">10"</option>
+                                    <option value="11">11"</option>
+                                    <option value="12">12"</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Calculate BMI</button>
+                            <div class="card my-3">
+                                <div class="card-header font-monospace">Result</div>
+                                <div class="card-body text-muted">
+                                    <h1 class="card-title d-flex justify-content-between">BMI: <span id="bmi">...</span>
+                                    </h1>
+                                    <p class="card-text fs-5 d-flex justify-content-between">Health:
+                                        <span id="health">...</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr class="m-5">
+                        <h2>Body Mass Index (BMI) Nomogram</h2>
+                        <hr>
+                        <p>This BMI nomogram is not intended for use with:</p>
+                        <ul>
+                            <li>those under 18 years of age,</li>
+                            <li>and pregnant and lactating women.</li>
+                        </ul>
+
+                        <h4><u>BMI Chart</u></h4>
+                        <p>You can also calculate your BMI using this formula:
+                            <br>
+                            <b>BMI = weight(kg)/height(m)<sup>2</sup></b></p>
+
+                        <div class="table-responsive mb-3">
+                            <table class="table caption-top">
+                                <caption>Health Risk Classification According to Body Mass Index (BMI)</caption>
+                                <thead class="bg-primary text-white">
+                                    <tr>
+                                        <th>BMI</th>
+                                        <th>Classification</th>
+                                        <th>Risk of developing health problems</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>less than 18.5</td>
+                                        <td>Underweight</td>
+                                        <td>Increased</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18.5 - 24.9</td>
+                                        <td>Normal Weight</td>
+                                        <td>Least</td>
+                                    </tr>
+                                    <tr>
+                                        <td>25.0 - 29.9</td>
+                                        <td>Overweight</td>
+                                        <td>Increased</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30.0 - 34.9</td>
+                                        <td>Obese class I</td>
+                                        <td>High</td>
+                                    </tr>
+                                    <tr>
+                                        <td>35.0 - 39.9</td>
+                                        <td>Obese class II</td>
+                                        <td>Very high</td>
+                                    </tr>
+                                    <tr>
+                                        <td>equal to or greater than 40.0</td>
+                                        <td>Obese class III</td>
+                                        <td>Extremely high</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p><b>Note:</b> For persons 65 years and older the 'normal' range may
+                            begin slightly above BMI 18.5 and extend into the 'overweight' range.</p>
+
                     </div>
                 </div>
 
@@ -87,6 +218,9 @@
     <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/japp.js"></script>
+
+    <!-- JAPP JavaScript -->
+    <script src="js/bmi-calculator.js"></script>
 </body>
 
 </html>

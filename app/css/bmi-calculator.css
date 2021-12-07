@@ -1,0 +1,16 @@
+.japp-box input:focus,
+.japp-box select:focus,
+.japp-box .btn:focus {
+  box-shadow: none;
+}
+
+.japp-box .table {
+  min-width: max-content;
+}
+
+@media only screen and (max-width: 991px) {
+.japp-box form {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+}
