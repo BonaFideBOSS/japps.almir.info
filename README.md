@@ -4,4 +4,4 @@
   <img src="https://user-images.githubusercontent.com/41794735/140662248-b995e8d1-5f04-4e2d-9b9e-a85cd3965943.png" align="right"/>
 </h2>
 <h4>Applications and games built using JavaScript.</h4>
-Link: https://apps.almir.info/
+Link: https://japps.almir.info/
