@@ -77,6 +77,9 @@ for (var i = 0; i <= 10; i++) {
 }
 for (var i = 0; i <= 59; i++) {
   secoptions += "<option value=" + i + ">" + i + "</option>";
+  if (i == 30) {
+    secoptions += "<option selected value=" + i + ">" + i + "</option>";
+  }
 }
 min.innerHTML = minoptions;
 sec.innerHTML = secoptions;
