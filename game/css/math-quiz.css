@@ -1,0 +1,26 @@
+.japp-box input:focus,
+.japp-box select:focus,
+.japp-box .btn:focus {
+  box-shadow: none;
+}
+
+#question {
+  display: block;
+}
+
+#result {
+  color: #6c757d;
+}
+
+@media only screen and (max-width: 991px) {
+  .japp-box .game-area,
+  .japp-box form {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+
+.statistics .table tbody tr td:last-child {
+  text-align: end;
+}

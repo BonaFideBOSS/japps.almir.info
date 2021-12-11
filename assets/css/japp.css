@@ -26,6 +26,7 @@
         margin-right: 0;
         margin-top: 1rem;
     }
+
     .japp-box {
         padding-right: .5rem !important;
         padding-left: .5rem !important
@@ -36,4 +37,8 @@
     #japp-share-toast {
         margin: 3rem 0 !important;
     }
+}
+
+select {
+    cursor: pointer !important;
 }
