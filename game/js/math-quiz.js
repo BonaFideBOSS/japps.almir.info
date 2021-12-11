@@ -110,40 +110,48 @@ var countdown = null;
 
 function timer() {
   var quiztime = +(min.value * 60) + +sec.value;
-  if (quiztime <= 600 && quiztime >= 30) {
-    difficulty.disabled = true
-    duration = moment.duration(quiztime * 1000, 'milliseconds');
-    countdown = setInterval(() => {
-      duration = moment.duration(duration - 10, 'milliseconds');
-      mm = duration.minutes();
-      ss = duration.seconds();
-      ms = Math.floor(duration.milliseconds() / 10).toFixed(0);
-      mm = mm < 10 ? "0" + mm : mm;
-      ss = ss < 10 ? "0" + ss : ss;
-      ms = ms < 10 ? "0" + ms : ms;
-      timerDisplay.innerHTML = mm + ":" + ss + ":" + ms
-      if (duration == 0) {
-        clearInterval(countdown)
-        $(timerStart).attr('disabled', false)
-        $(timerStop).attr('disabled', true)
-        noqCount.innerHTML = 0 + '/' + noq.value
-        currentQuestion = 0;
-        difficulty.disabled = false
-      }
+  if (noq.value <= 100 && noq.value >= 10) {
+    $('.noqwarning').attr('hidden', true)
+    if (quiztime <= 600 && quiztime >= 30) {
+      $('.timerwarning').attr('hidden', true)
+      difficulty.disabled = true
+      duration = moment.duration(quiztime * 1000, 'milliseconds');
+      countdown = setInterval(() => {
+        duration = moment.duration(duration - 10, 'milliseconds');
+        mm = duration.minutes();
+        ss = duration.seconds();
+        ms = Math.floor(duration.milliseconds() / 10).toFixed(0);
+        mm = mm < 10 ? "0" + mm : mm;
+        ss = ss < 10 ? "0" + ss : ss;
+        ms = ms < 10 ? "0" + ms : ms;
+        timerDisplay.innerHTML = mm + ":" + ss + ":" + ms
+        if (duration == 0) {
+          clearInterval(countdown)
+          $(timerStart).attr('disabled', false)
+          $(timerStop).attr('disabled', true)
+          noqCount.innerHTML = 0 + '/' + noq.value
+          currentQuestion = 0;
+          difficulty.disabled = false
+        }
 
-    }, 10);
-    $(timerStart).attr('disabled', true)
-    $(timerStop).attr('disabled', false)
+      }, 10);
+      $(timerStart).attr('disabled', true)
+      $(timerStop).attr('disabled', false)
+    } else {
+      $('.timerwarning').attr('hidden', false)
+    }
   } else {
-    $('.timerwarning').attr('hidden', false)
+    $('.noqwarning').attr('hidden', false)
   }
 }
 
 timerStart.addEventListener('click', () => {
-  currentQuestion = 1;
-  noqCount.innerHTML = 1 + '/' + noq.value
   timer();
-  quiz();
+  if (countdown) {
+    currentQuestion = 1;
+    noqCount.innerHTML = 1 + '/' + noq.value
+    quiz();
+  }
   if (skipbtn.hasAttribute('hidden')) {
     skipbtn.hidden = false
     nextbtn.hidden = true

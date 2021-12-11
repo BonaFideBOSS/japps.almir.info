@@ -95,8 +95,10 @@
 									<div class="card-body">
 										<div class="input-group mb-2">
 											<span class="input-group-text">Questions</span>
-											<input id="noq" type="number" class="form-control" value="10">
+											<input id="noq" type="number" class="form-control" value="10" min="10" max="100">
 										</div>
+										<p class="noqwarning text-danger" hidden><i class="fas fa-exclamation-circle"></i> Minimum Questions:
+											<b>10</b> | Maximum Questions: <b>100</b></p>
 										<div class="input-group mb-2">
 											<span class="input-group-text">min</span>
 											<select id="min" class="form-select"></select>
