@@ -65,7 +65,6 @@ function updateUserRecord(record, recordValue) {
 window.onload = function () {
   quiz();
   checkUserRecord();
-  console.log(secret)
 }
 
 setInterval(() => {
@@ -111,7 +110,6 @@ var countdown = null;
 
 function timer() {
   var quiztime = +(min.value * 60) + +sec.value;
-  console.log(quiztime)
   if (quiztime <= 600 && quiztime >= 30) {
     difficulty.disabled = true
     duration = moment.duration(quiztime * 1000, 'milliseconds');
@@ -146,7 +144,6 @@ timerStart.addEventListener('click', () => {
   noqCount.innerHTML = 1 + '/' + noq.value
   timer();
   quiz();
-  console.log(secret)
   if (skipbtn.hasAttribute('hidden')) {
     skipbtn.hidden = false
     nextbtn.hidden = true
@@ -236,7 +233,6 @@ function btns() {
 function btnClick() {
   if (countdown && duration != 0) {
     currentQuestion++
-    console.log(currentQuestion)
     noqCount.innerHTML = currentQuestion + '/' + noq.value
     if (currentQuestion == noq.value) {
       skipbtn.disabled = true
@@ -255,7 +251,6 @@ function quizsubmit() {
       clearInterval(countdown)
       $(timerStart).attr('disabled', false)
       $(timerStop).attr('disabled', true)
-      console.log(timerDisplay.innerHTML)
       currentQuestion = 1;
       countdown = null;
       difficulty.disabled = false
@@ -293,13 +288,11 @@ $(difficulty).on('change', function () {
   if (nextbtn.hasAttribute('hidden')) {} else {
     btns();
   }
-  console.log(secret)
 })
 
 $(skipbtn).on('click', function () {
   quiz();
   result.innerHTML = ''
-  console.log(secret)
   btnClick();
 
   if (difficulty.value == "easy") {
@@ -316,7 +309,6 @@ $(nextbtn).on('click', function () {
   quiz();
   btns();
   result.innerHTML = ''
-  console.log(secret)
   btnClick();
   if (currentQuestion == 1) {
     timerDisplay.innerHTML = '00:00:00'
