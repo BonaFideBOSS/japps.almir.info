@@ -1,0 +1,198 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+  <style>
+    body {
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <!-- Button trigger modal -->
+    <button id="newForm" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataForm">Add</button>
+
+    <table class="table table-bordered table-striped align-middle mt-3">
+
+      <thead class="table-light">
+        <tr class="align-middle">
+          <th>#</th>
+          <th class="col-head" ondblclick="editHead(this)">Column_1</th>
+          <th class="d-flex gap-1">
+            <button class="btn btn-primary" onclick="newCol()">+</button>
+            <button class="btn btn-danger" onclick="delCol()" disabled>-</button>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody></tbody>
+
+    </table>
+
+  </div>
+
+  <div class="modal fade" id="dataForm" tabindex="-1" aria-labelledby="dataFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="dataFormTitle">Insert new record</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form action="javascript:void(0);">
+          <div class="modal-body"></div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+  <script>
+    function checkEmptyTable() {
+      if ($('.table tbody').html() == '' || ($('.noData').length == 1 && $('.table tbody tr').length == 1)) {
+        var noOfCol = $('.table thead tr th').length
+        $('.table tbody').html('<tr><td colspan="' + noOfCol + '" class="noData text-center">No record to display.</td></tr>')
+      } else {
+        $('.noData').parent().remove()
+      }
+    }
+    checkEmptyTable()
+
+    $('#dataForm').on('shown.bs.modal', function () {
+      $(this)
+        .find('input:eq(0)').focus().end()
+        .find('input').val('').end()
+        .find('select').prop('selectedIndex', 0).end()
+    });
+
+    function counter() {
+      $('.table-row-index').each((index, cell) => {
+        $(cell).html(index + 1)
+      })
+    }
+
+    $('.table').on('keypress', function (e) {
+      if (e.which == 13) {
+        var inputObj = $(this).find('input:focus')
+        if ($(inputObj).parents('tbody').length) {
+          $(inputObj).parent().parent().find('button:eq(0)').click()
+        } else {
+          $(inputObj).parent().html($(inputObj).val())
+          $('#newForm').attr('disabled', false)
+        }
+      }
+    })
+
+    function newCol() {
+      var currentNoOfCols = $('.table thead tr th').length - 2
+      $('.table thead tr th:eq(' + currentNoOfCols + ')').after('<th class="col-head" ondblclick="editHead(this)">Column_' + (currentNoOfCols + 1) + '</th>')
+
+      if ($('.table tbody tr').length > 0 && $('.noData').length == 0) {
+        $('table tbody tr').find('td:eq(' + currentNoOfCols + ')').after('<td class="field" data-type="text" ondblclick="edit(this)"></td>')
+      }
+      checkEmptyTable("newCol")
+      $('.table thead tr button:eq(1)').attr('disabled', false)
+    }
+
+    function delCol() {
+      $('.table thead tr th:eq(-2)').remove()
+      $('.table tbody tr').find('td:eq(-2)').remove()
+
+      if ($('.table thead tr th').length <= 3) {
+        $('.table thead tr button:eq(1)').attr('disabled', true)
+      }
+    }
+
+    function editHead(e) {
+      if ($(e).find('input').length == 0) {
+        $('#newForm').attr('disabled', true)
+        var oldHead = $(e).html()
+        $(e).html('<input type="text" class="form-control" value="' + oldHead + '" autofocus>')
+      } else {
+        $('#newForm').attr('disabled', false)
+        var newHead = $(e).find('input').val()
+        $(e).html(newHead)
+      }
+    }
+
+    function newForm() {
+      var dataFields = ""
+      $('.col-head').each((index, header) => {
+        dataFields += '<div class="field row mb-3 align-items-center">' +
+          '<div class="col-2"><label><strong>' + $(header).html() + '</strong></label></div>' +
+          '<div class="col-8"><input type="text" class="form-control"></div>' +
+          '<div class="col-2"><select class="data-type form-select" disabled>' +
+          '<option>text</option>' +
+          '<option>date</option>' +
+          '</select></div>' +
+          '</div>'
+      })
+      $('#dataForm .modal-body').html(dataFields)
+    }
+    $('#newForm').click(newForm)
+
+    function add() {
+      var fields = ""
+      $('#dataForm .field').each((index, field) => {
+        fields += '<td class="field" data-type="' + $(field).find('.data-type').val() + '" ondblclick="edit(this)">' + $(field).find('input').val() + '</td>'
+      })
+      $('.table tbody').append('<tr>' +
+        '<td class="table-row-index"></td>' +
+        fields +
+        '<td class="d-flex gap-1"><button class="btn btn-primary" onclick="edit(this)">Edit</button>' +
+        '<button class="btn btn-danger" onclick="del(this)">Del</button></td>' +
+        '</tr>')
+
+      checkEmptyTable()
+      counter()
+    }
+    $('#dataForm form').submit(add)
+
+    function edit(e) {
+      if ($(e).hasClass('field')) {
+        console.log($(e).parent().find('button:eq(0)').click())
+      }
+
+      var mode = $(e).html()
+      var data = $(e).parent().parent()
+      var fields = $(data).find('.field')
+
+      if (mode == "Edit") {
+        $(e).html('Save')
+
+        $(fields).each((index, field) => {
+          $(field).html('<input class="form-control" value="' + $(field).html() + '" type="' + $(field).prop('data-type') + '">')
+        })
+      }
+
+      if (mode == "Save") {
+        $(fields).each((index, field) => {
+          if ($(field).has('input')) {
+            $(field).html($(field).find('input').val())
+          }
+        })
+        $(e).html('Edit')
+      }
+    }
+
+    function del(e) {
+      $(e).parent().parent().remove()
+      counter()
+      checkEmptyTable()
+    }
+
+  </script>
+</body>
+
+</html>

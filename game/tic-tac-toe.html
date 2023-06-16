@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/japp.css">
+
+    <!-- JAPP CSS -->
+    <link rel="stylesheet" href="css/tic-tac-toe.css">
 </head>
 
 <body>
@@ -69,8 +72,22 @@
                 </div>
 
                 <div class="container-fluid py-2">
-                    <div class="japp-box pt-4 pb-2">
-                        <p class="text-center"><i>Coming soon...</i></p>
+                    <div class="japp-box py-5">
+                        <div id="gameContainer">
+                            <div id="cellContainer">
+                              <div cellIndex="0" class="cell"></div>
+                              <div cellIndex="1" class="cell"></div>
+                              <div cellIndex="2" class="cell"></div>
+                              <div cellIndex="3" class="cell"></div>
+                              <div cellIndex="4" class="cell"></div>
+                              <div cellIndex="5" class="cell"></div>
+                              <div cellIndex="6" class="cell"></div>
+                              <div cellIndex="7" class="cell"></div>
+                              <div cellIndex="8" class="cell"></div>
+                            </div>
+                            <h2 id="statusText" class="py-3"></h2>
+                            <button id="restartBtn" class="btn btn-lg btn-primary">Restart</button>
+                          </div>
                     </div>
                 </div>
 
@@ -97,6 +114,9 @@
     <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/japp.js"></script>
+
+    <!-- JAPP JavaScript -->
+    <script src="js/tic-tac-toe.js"></script>
 </body>
 
 </html>

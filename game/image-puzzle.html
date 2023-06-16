@@ -1,0 +1,199 @@
+<html>
+
+<head>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .container div:nth-of-type(1)>* {
+      margin-bottom: 10px;
+    }
+
+    select {
+      height: 2em;
+    }
+
+    .img-preview {
+      width: 10em;
+    }
+
+    button {
+      width: 100%;
+      height: 3em;
+    }
+
+    #result {
+      margin: 0;
+    }
+
+    #puzzle-container {
+      width: fit-content;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      /*grid-column-gap: 1px;
+      grid-row-gap: 1px;*/
+    }
+
+    #puzzle-container div {
+      border: 1px solid #fff;
+      width: 150px;
+      height: 150px;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Image Puzzle</h1>
+  <div class="container">
+
+    <div>
+      <label for="imgSelector">Select Image:</label>
+      <select name="imgSelector" id="imgSelector">
+      </select>
+
+      <div class="img-preview">
+        <img id="image" src="images/image_1.jpg">
+      </div>
+
+      <button id="start">Start</button>
+      <button id="end" hidden>End</button>
+      <button id="quit" hidden>Quit</button>
+      <h1 id="result"></h1>
+    </div>
+
+    <div id="puzzle-container">
+    </div>
+  </div>
+
+  <script>
+    var imgSelector = document.getElementById('imgSelector')
+    var image = document.getElementById('image')
+    var start = document.getElementById('start')
+    var end = document.getElementById('end')
+    var quit = document.getElementById('quit')
+    var result = document.getElementById('result')
+    var container = document.getElementById('puzzle-container')
+
+    imgSelector.addEventListener('change', changeImg)
+
+    for (let index = 1; index <= 3; index++) {
+      var option = document.createElement('option')
+      option.value = "image_" + index
+      option.text = "Image " + index
+      imgSelector.appendChild(option)
+    }
+
+    function changeImg() {
+      image.src = "images/" + imgSelector.value + ".jpg"
+    }
+
+    start.addEventListener('click', puzzleStart)
+    end.addEventListener('click', puzzleEnd)
+    quit.addEventListener('click', puzzleQuit)
+
+    function puzzleStart() {
+      imgSelector.disabled = true
+      result.innerText = ''
+      image.style.filter = "blur(5px)"
+
+      var images = Array.from(Array(9), (_, i) => i + 1)
+      images.sort((a, b) => 0.5 - Math.random())
+
+      for (let index = 1; index <= 9; index++) {
+        const div = document.createElement('div')
+
+        div.id = 'div' + index
+        div.setAttribute("ondrop", "drop(event)")
+        div.setAttribute("ondragover", "allowDrop(event)")
+
+        const img = document.createElement('img')
+        img.id = images[index - 1]
+        img.src = 'images/' + imgSelector.value + '/' + images[index - 1] + '.jpg'
+        img.setAttribute("draggable", "true")
+        img.setAttribute("ondragstart", "drag(event)")
+
+        div.appendChild(img)
+
+        container.appendChild(div)
+      }
+      start.hidden = true
+      end.hidden = false
+      quit.hidden = false
+    }
+
+    function puzzleEnd() {
+      var status = 'false'
+      var imgs = container.querySelectorAll('img')
+      for (let index = 1; index <= imgs.length; index++) {
+        if (imgs[index - 1].id != index) {
+          status = 'false'
+          result.innerHTML = 'Failed!'
+          break;
+        } else {
+          status = 'true'
+        }
+      }
+      if (status == 'true') {
+        container.innerHTML = ''
+        end.hidden = true
+        quit.hidden = true
+        start.hidden = false
+        imgSelector.disabled = false
+        result.innerText = 'Passed!'
+        image.style.filter = "none"
+      }
+      console.log(status)
+    }
+
+    function puzzleQuit() {
+      container.innerHTML = ''
+      end.hidden = true
+      quit.hidden = true
+      start.hidden = false
+      imgSelector.disabled = false
+      result.innerText = ''
+      image.style.filter = "none"
+    }
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drag(event) {
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function drop(event) {
+      console.log("drop")
+      event.preventDefault();
+      var data = event.dataTransfer.getData("text")
+      var src = document.getElementById(data);
+      var srcParent = src.parentNode;
+      var newTarget = event.currentTarget;
+
+      if (newTarget.id != "delete") {
+        if (newTarget.firstElementChild != null) {
+          newTarget = newTarget.firstElementChild
+          event.currentTarget.replaceChild(src, newTarget);
+          srcParent.appendChild(newTarget);
+        } else {
+          event.target.appendChild(src)
+        }
+      } else {
+        srcParent.removeChild(src)
+      }
+
+    }
+  </script>
+</body>
+
+</html>
