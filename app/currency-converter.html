@@ -499,6 +499,24 @@
 
 	<div class="back-to-top"></div>
 
+	<div class="modal fade" id="shutdowModal">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">App no longer working</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Due to the API no longer being a free service, this app had to shutdown completely and probably forever.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<a href="/library" class="btn btn-primary">Go back</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- JavaScript -->
 	<script src="../assets/js/bootstrap.bundle.min.js"></script>
 	<script src="../assets/fontawesome/js/all.min.js"></script>
@@ -510,7 +528,14 @@
 	<script src="../assets/js/script.js"></script>
 	<script src="../assets/js/japp.js"></script>
 	<!-- JAPP JavaScript -->
-	<script src="js/currency-converter.js"></script>
+	<!-- <script src="js/currency-converter.js"></script> -->
+
+	<script>
+		$('select,input,button').attr('disabled', true)
+		$('#shutdowModal button').attr('disabled', false)
+		let modal = new bootstrap.Modal(document.getElementById('shutdowModal'), {})
+		modal.show()
+	</script>
 </body>
 
 </html>
